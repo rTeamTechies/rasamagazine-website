@@ -1,0 +1,95 @@
+.article,
+.missing {
+  min-height: 100vh;
+  padding: 2.75rem 0 3.5rem;
+  color: #fff;
+}
+
+.article[data-theme='archives'] {
+  background: var(--teal);
+}
+
+.article[data-theme='community'] {
+  background: var(--burgundy);
+}
+
+.article[data-theme='culture'] {
+  background: var(--charcoal);
+}
+
+.missing {
+  background: var(--teal);
+}
+
+.wrap {
+  width: min(920px, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0 0 1.75rem;
+  font-size: clamp(1.55rem, 3.6vw, 2.35rem);
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  max-width: none;
+}
+
+.lead-row {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.85fr) 1.15fr;
+  gap: 1.6rem;
+  align-items: start;
+  margin-bottom: 1.5rem;
+}
+
+.hero {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 2px solid var(--charcoal);
+}
+
+.lead-copy p,
+.body p {
+  margin: 0 0 1.1rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 0.8rem;
+  margin: 1.35rem 0;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 2px solid var(--charcoal);
+}
+
+:host ::ng-deep .back-link {
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 760px) {
+  .lead-row {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    text-align: left;
+    font-size: clamp(1.4rem, 5vw, 1.9rem);
+  }
+}

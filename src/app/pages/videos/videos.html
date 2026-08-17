@@ -1,0 +1,31 @@
+<div class="page videos">
+  <div class="wrap">
+    <header>
+      <h1 class="display">VIDEOS</h1>
+      <p>{{ intro }}</p>
+    </header>
+
+    <div class="series">
+      @for (item of series; track item.id) {
+        <section class="series-card">
+          <h2 class="display">{{ item.title }}</h2>
+          <p>{{ item.description }}</p>
+          <div class="embed" #player [attr.data-video-id]="item.id">
+            <iframe
+              [src]="item.embed"
+              [title]="item.title"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
+          <a class="watch" [href]="item.playlistUrl" target="_blank" rel="noopener noreferrer">
+            Open playlist on YouTube
+          </a>
+        </section>
+      }
+    </div>
+
+    <app-back-link />
+  </div>
+</div>

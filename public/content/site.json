@@ -1,0 +1,68 @@
+{
+  "siteName": "RASA Magazine",
+  "tagline": "Where Art Meets Culture",
+  "editor": "Anjaneya Mulekar",
+  "links": {
+    "youtube": "https://www.youtube.com/@artsyanju",
+    "instagramRasa": "https://www.instagram.com/rasabyartsyanju",
+    "instagramPersonal": "https://www.instagram.com/artsyanju",
+    "email": "mailto:anjaneyapm23@gmail.com",
+    "emailLabel": "anjaneyapm23@gmail.com",
+    "phone": "tel:+918452062193",
+    "phoneLabel": "+91 8452062193",
+    "cv": "https://drive.google.com/drive/folders/12duOf2WgYW3dLqUKILwtXD0x4Xb_Ze0j?usp=drive_link"
+  },
+  "brand": {
+    "rasaLogo": "assets/images/brand/rasa-logo.png",
+    "artsyLogo": "assets/images/brand/artsy-anju.png",
+    "youtubeIcon": "assets/images/brand/youtube.png",
+    "instagramIcon": "assets/images/brand/instagram.png",
+    "aboutPortrait": "assets/images/brand/about-portrait.png"
+  },
+  "home": {
+    "heroLead": "A digital magazine exploring classical arts, cinema, fashion, food, heritage and the creative voices shaping culture today.",
+    "introParagraphs": [
+      "Rasa is a digital magazine dedicated to the arts, culture, heritage, and the stories that shape our world. From classical performances and emerging artists to cinema, fashion, food, heritage and contemporary cultural conversations, Rasa brings together diverse forms of creative expression under one platform.",
+      "We believe culture is not something distant or confined to tradition, it is living, evolving, and meant to be experienced by everyone. Through thoughtful writing, interviews, reviews and visual storytelling, Rasa explores culture with a fresh, contemporary perspective while celebrating the richness of where we come from.",
+      "Rasa is a space to discover, experience, and engage with culture."
+    ],
+    "heroVisuals": [
+      {
+        "src": "assets/images/magazines/vol-4-july-2026.png",
+        "alt": "RASA Magazine latest issue"
+      },
+      {
+        "src": "assets/images/articles/evening-of-aharya.jpg",
+        "alt": "Classical performance"
+      },
+      {
+        "src": "assets/images/articles/call-of-the-flute.jpg",
+        "alt": "Music and culture"
+      }
+    ],
+    "nav": [
+      {
+        "label": "MAGAZINE",
+        "path": "/magazine",
+        "image": "assets/images/magazines/vol-4-july-2026.png"
+      },
+      {
+        "label": "ARTICLES",
+        "path": "/articles",
+        "image": "assets/images/articles/nav-articles.jpg"
+      },
+      {
+        "label": "VIDEOS",
+        "path": "/videos",
+        "image": "assets/images/articles/nav-videos.jpg"
+      },
+      {
+        "label": "ABOUT ME",
+        "path": "/about-me",
+        "image": "assets/images/articles/nav-about.jpg"
+      }
+    ],
+    "partnershipLinkLabel": "PARTNERSHIP & CONTACT",
+    "partnershipLinkPath": "/partnership-contact"
+  }
+}

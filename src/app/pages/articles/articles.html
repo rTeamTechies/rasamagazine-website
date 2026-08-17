@@ -1,0 +1,21 @@
+@if (index$ | async; as index) {
+  <div class="page articles">
+    <div class="wrap">
+      <header>
+        <h1 class="display">Articles</h1>
+        <p>{{ index.intro }}</p>
+      </header>
+
+      <app-h-carousel class="cards-carousel">
+        @for (cat of index.categories; track cat.id) {
+          <a class="card" [routerLink]="cat.path">
+            <img [src]="cat.thumb" [alt]="cat.title" />
+            <span class="display label">{{ cat.navLabel }}</span>
+          </a>
+        }
+      </app-h-carousel>
+
+      <app-back-link />
+    </div>
+  </div>
+}

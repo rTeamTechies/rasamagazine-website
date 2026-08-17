@@ -1,0 +1,32 @@
+<div class="carousel" [class.at-start]="!canPrev" [class.at-end]="!canNext">
+  <button
+    type="button"
+    class="arrow prev"
+    (click)="scroll(-1)"
+    [disabled]="!canPrev"
+    aria-label="Previous"
+  >
+    <span aria-hidden="true">‹</span>
+  </button>
+
+  <div
+    #track
+    class="track"
+    tabindex="0"
+    (scroll)="onScroll()"
+    role="region"
+    aria-label="Horizontal gallery"
+  >
+    <ng-content />
+  </div>
+
+  <button
+    type="button"
+    class="arrow next"
+    (click)="scroll(1)"
+    [disabled]="!canNext"
+    aria-label="Next"
+  >
+    <span aria-hidden="true">›</span>
+  </button>
+</div>

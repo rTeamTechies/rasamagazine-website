@@ -1,0 +1,35 @@
+@if (site$ | async; as site) {
+  <div class="page magazine">
+    <div class="wrap">
+      <header class="intro">
+        <h1 class="display">MAGAZINE</h1>
+        <p>
+          RASA is an online digital magazine about different topics like event articles, reviews,
+          interview pieces and guest articles which fall under arts and culture. This magazine is a
+          small attempt to document the culture and art in a more editorial way.
+        </p>
+        <p>
+          Click on the picture and it will direct you to a drive where you can read the online
+          magazine. Better to download it from drive and read it with a two page view for a better
+          experience! Don't forget to send your feedback on the same Instagram -
+          <a [href]="site.links.instagramRasa" target="_blank" rel="noopener noreferrer"
+            >&#64;rasabyartsyanju</a
+          >
+        </p>
+      </header>
+
+      @if (issues$ | async; as issues) {
+        <app-h-carousel class="issues-carousel">
+          @for (issue of issues; track issue.id) {
+            <a class="issue" [href]="issue.driveUrl" target="_blank" rel="noopener noreferrer">
+              <span class="display issue-title">{{ issue.title }}</span>
+              <img [src]="issue.cover" [alt]="issue.title" />
+            </a>
+          }
+        </app-h-carousel>
+      }
+
+      <app-back-link />
+    </div>
+  </div>
+}

@@ -1,0 +1,51 @@
+@if (site$ | async; as site) {
+  <div class="page about">
+    <div class="wrap">
+      <section class="bio">
+        <div class="bio-copy">
+          <h1 class="display">About me</h1>
+          @for (p of paragraphs; track p) {
+            <p>{{ p }}</p>
+          }
+        </div>
+        <img class="portrait" [src]="site.brand.aboutPortrait" [alt]="site.editor" />
+      </section>
+
+      <h2 class="display links-heading">
+        Here are some important<br />links so you can get to know<br />me
+      </h2>
+
+      <section class="socials">
+        <h3 class="display">My socials</h3>
+        <div class="social-grid">
+          <a class="social-card" [href]="site.links.youtube" target="_blank" rel="noopener noreferrer">
+            <p>
+              Follow me on <strong>YouTube</strong> to see exciting videos of interviews with
+              experts, friends, random vlogs and more
+            </p>
+          </a>
+          <a
+            class="social-card"
+            [href]="site.links.instagramPersonal"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <p>
+              Follow me on <strong>Instagram</strong> to see exciting comedy reels of relatable
+              sketches, rants and more
+            </p>
+          </a>
+        </div>
+      </section>
+
+      <section class="work">
+        <h3 class="display">My work</h3>
+        <a class="cv" [href]="site.links.cv" target="_blank" rel="noopener noreferrer">
+          Here is my CV and Portfolio
+        </a>
+      </section>
+
+      <app-back-link />
+    </div>
+  </div>
+}

@@ -1,0 +1,99 @@
+@if (site$ | async; as site) {
+  <div class="page home">
+    <header class="hero">
+      <div class="hero-atmosphere" aria-hidden="true">
+        <span class="blob blob-a"></span>
+        <span class="blob blob-b"></span>
+        <span class="blob blob-c"></span>
+      </div>
+
+      <div class="hero-bar">
+        <div class="identity">
+          <p class="name display">{{ site.editor }}</p>
+          <div class="socials">
+            <a [href]="site.links.youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <img [src]="site.brand.youtubeIcon" alt="" />
+            </a>
+            <a [href]="site.links.instagramRasa" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <img [src]="site.brand.instagramIcon" alt="" />
+            </a>
+          </div>
+        </div>
+        <a class="brand-mark" [href]="site.links.instagramPersonal" target="_blank" rel="noopener noreferrer">
+          <img [src]="site.brand.artsyLogo" alt="Artsy Anju" />
+        </a>
+      </div>
+
+      <div class="hero-main">
+        <div class="hero-copy">
+          <img class="rasa-logo" [src]="site.brand.rasaLogo" [alt]="site.siteName" />
+          <p class="tagline display">{{ site.tagline }}</p>
+          <p class="lead">{{ site.home.heroLead }}</p>
+
+          <div class="cta-row">
+            <a class="cta primary" routerLink="/magazine">Explore Magazine</a>
+            <a class="cta ghost" routerLink="/videos">
+              <span class="play" aria-hidden="true"></span>
+              Watch Videos
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="false">
+          <div class="shape shape-back"></div>
+          <div class="shape shape-mid"></div>
+
+          @if (site.home.heroVisuals[0]; as main) {
+            <figure class="frame frame-main">
+              <img [src]="main.src" [alt]="main.alt" />
+            </figure>
+          }
+          @if (site.home.heroVisuals[1]; as side) {
+            <figure class="frame frame-side">
+              <img [src]="side.src" [alt]="side.alt" />
+            </figure>
+          }
+          @if (site.home.heroVisuals[2]; as accent) {
+            <figure class="frame frame-accent">
+              <img [src]="accent.src" [alt]="accent.alt" />
+            </figure>
+          }
+        </div>
+      </div>
+
+      <div class="hero-footer">
+        <div class="footer-socials">
+          <a [href]="site.links.youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <img [src]="site.brand.youtubeIcon" alt="" />
+          </a>
+          <a [href]="site.links.instagramRasa" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img [src]="site.brand.instagramIcon" alt="" />
+          </a>
+        </div>
+        <a class="scroll-hint" href="#explore">Explore</a>
+      </div>
+    </header>
+
+    <section class="intro-band">
+      <div class="intro-inner">
+        @for (p of site.home.introParagraphs; track p) {
+          <p>{{ p }}</p>
+        }
+      </div>
+    </section>
+
+    <section class="nav-section" id="explore">
+      <app-h-carousel class="nav-carousel">
+        @for (item of site.home.nav; track item.path) {
+          <a class="nav-item" [routerLink]="item.path">
+            <span class="display nav-label">{{ item.label }}</span>
+            <img [src]="item.image" [alt]="item.label" />
+          </a>
+        }
+      </app-h-carousel>
+      <a class="partnership-link display" [routerLink]="site.home.partnershipLinkPath">
+        {{ site.home.partnershipLinkLabel }}
+      </a>
+    </section>
+  </div>
+}

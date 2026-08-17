@@ -1,0 +1,53 @@
+@if (state$ | async; as state) {
+  @if (!state.loaded) {
+    <div class="page article loading"></div>
+  } @else if (state.post; as post) {
+    <div class="page article" [attr.data-theme]="post.category">
+      <div class="wrap">
+        <h1 class="display">{{ post.title }}</h1>
+
+        <div class="lead-row">
+          @if (post.hero) {
+            <img class="hero" [src]="post.hero" alt="" />
+          }
+          <div class="lead-copy">
+            @for (block of post.paragraphs.slice(0, 2); track $index) {
+              @if (isCredit(block)) {
+                <p class="credit">{{ block }}</p>
+              } @else {
+                <p>{{ block }}</p>
+              }
+            }
+          </div>
+        </div>
+
+        <div class="body">
+          @for (block of post.paragraphs.slice(2); track $index) {
+            @if (isCredit(block)) {
+              <p class="credit">{{ block }}</p>
+            } @else {
+              <p>{{ block }}</p>
+            }
+          }
+        </div>
+
+        @if (post.images.length) {
+          <div class="gallery">
+            @for (img of post.images; track img) {
+              <img [src]="img" alt="" />
+            }
+          </div>
+        }
+
+        <app-back-link [to]="backTo(post.category)" />
+      </div>
+    </div>
+  } @else {
+    <div class="page missing">
+      <div class="wrap">
+        <h1 class="display">Article not found</h1>
+        <app-back-link to="/articles" />
+      </div>
+    </div>
+  }
+}

@@ -1,0 +1,103 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.carousel {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.track {
+  display: flex;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.35rem 0.15rem 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.55);
+    outline-offset: 4px;
+  }
+}
+
+.arrow {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.18);
+  color: inherit;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+  z-index: 2;
+
+  span {
+    font-size: 1.75rem;
+    line-height: 1;
+    margin-top: -2px;
+  }
+
+  &:hover:not(:disabled) {
+    transform: scale(1.05);
+    background: rgba(0, 0, 0, 0.28);
+  }
+
+  &:disabled {
+    opacity: 0.28;
+    cursor: default;
+  }
+}
+
+:host-context(.carousel-light) {
+  .track {
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.28);
+    }
+
+    &:focus-visible {
+      outline-color: rgba(0, 0, 0, 0.45);
+    }
+  }
+
+  .arrow {
+    background: rgba(255, 255, 255, 0.7);
+  }
+}
+
+@media (max-width: 700px) {
+  .carousel {
+    gap: 0.35rem;
+  }
+
+  .arrow {
+    width: 38px;
+    height: 38px;
+
+    span {
+      font-size: 1.5rem;
+    }
+  }
+}
