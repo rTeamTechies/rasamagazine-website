@@ -1,0 +1,39 @@
+@if (issue$ | async; as issue) {
+  @if (issue.pdfUrl) {
+    <div class="page reader">
+      <header class="bar">
+        <div class="bar-inner">
+          <a class="back" routerLink="/magazine">← Magazines</a>
+          <h1 class="display">{{ issue.title }}</h1>
+          <a class="download" [href]="issue.pdfUrl" download target="_blank" rel="noopener noreferrer"
+            >Download PDF</a
+          >
+        </div>
+      </header>
+
+      <div class="viewer">
+        <iframe [src]="pdfSrc(issue.pdfUrl)" [title]="issue.title"></iframe>
+      </div>
+    </div>
+  } @else {
+    <div class="page missing">
+      <div class="wrap">
+        <h1 class="display">PDF not available</h1>
+        <p>This issue does not have an uploaded PDF yet.</p>
+        @if (issue.driveUrl) {
+          <a class="drive" [href]="issue.driveUrl" target="_blank" rel="noopener noreferrer"
+            >Open on Google Drive</a
+          >
+        }
+        <a class="drive" routerLink="/magazine">Magazines</a>
+      </div>
+    </div>
+  }
+} @else {
+  <div class="page missing">
+    <div class="wrap">
+      <h1 class="display">Issue not found</h1>
+      <a class="drive" routerLink="/magazine">Magazines</a>
+    </div>
+  </div>
+}

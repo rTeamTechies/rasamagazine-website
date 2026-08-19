@@ -73,18 +73,14 @@ h1.display {
 .cv {
   display: inline-block;
   font-size: 1.15rem;
-  text-decoration: underline;
-  text-underline-offset: 5px;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.85;
+  }
   color: #fff;
 }
 
-:host ::ng-deep .back-link {
-  color: #fff;
-  font-family: var(--font-body);
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
 
 @media (max-width: 860px) {
   .bio,

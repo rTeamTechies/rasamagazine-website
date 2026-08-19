@@ -1,6 +1,6 @@
 {
   "siteName": "RASA Magazine",
-  "tagline": "Where Art Meets Culture",
+  "tagline": "WHERE ART MEETS CULTURE",
   "editor": "Anjaneya Mulekar",
   "links": {
     "youtube": "https://www.youtube.com/@artsyanju",
@@ -49,7 +49,7 @@
       {
         "label": "ARTICLES",
         "path": "/articles",
-        "image": "assets/images/articles/nav-articles.jpg"
+        "image": "assets/images/articles/nav-articles.png"
       },
       {
         "label": "VIDEOS",

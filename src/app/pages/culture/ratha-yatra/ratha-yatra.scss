@@ -1,0 +1,84 @@
+.ratha-yatra {
+  min-height: 100vh;
+  padding: clamp(2.5rem, 5vw, 3.5rem) 0 clamp(3rem, 6vw, 4.5rem);
+  background: rgb(1, 77, 78);
+  color: var(--ivory);
+}
+
+.wrap {
+  width: min(920px, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0 0 1.75rem;
+  font-size: clamp(1.45rem, 3.2vw, 2.15rem);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: left;
+  color: var(--ivory);
+}
+
+.prose {
+  margin-bottom: 1.75rem;
+}
+
+.prose p {
+  margin: 0 0 1.15rem;
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  line-height: 1.68;
+  color: var(--ivory);
+  text-align: justify;
+  hyphens: auto;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.full-media {
+  margin: 0 0 1.75rem;
+}
+
+.full-media img {
+  width: 100%;
+  display: block;
+  border: 2px solid var(--charcoal);
+  background: #000;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.hero-media img {
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center top;
+}
+
+.credit {
+  display: block;
+  margin-top: 0.55rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-style: italic;
+  text-align: center;
+  color: var(--ivory);
+  opacity: 0.9;
+}
+
+.caption-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+@media (max-width: 760px) {
+  h1 {
+    font-size: clamp(1.3rem, 5.5vw, 1.75rem);
+  }
+}

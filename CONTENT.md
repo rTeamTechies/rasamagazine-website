@@ -1,8 +1,7 @@
 # Adding content to RASA Magazine
 
-All editable site content lives in `public/content/`. Images live in `public/assets/images/`.
-
-No code changes are needed for normal monthly updates — only JSON + image files.
+Magazines, videos, home, and partnership still use JSON under `public/content/`.  
+**Articles are Angular components with raw HTML** — each piece has its own page you can edit freely.
 
 ## Folder map
 
@@ -12,89 +11,53 @@ public/
     site.json                 # home copy, links, brand paths, nav
     partnership.json          # Partnership & Contact page copy
     magazines/
-      index.json              # list of magazine issues (newest last)
-    articles/
-      index.json              # article categories (Archives / Community / Culture)
-      manifest.json           # list of article file paths to load
-      archives/               # JSON posts for Archives
-      community/              # JSON posts for Community
-      culture/                # JSON posts for Culture
+      index.json              # list of magazine issues
     videos/
       index.json              # YouTube series
   assets/images/
-    brand/                    # logos, icons, about portrait
-    magazines/                # cover images
-    articles/                 # article covers + thumbs
+    brand/
+    magazines/
+    articles/                 # covers / heroes / gallery images
+  assets/magazines/pdfs/
+
+src/app/pages/
+  articles/                   # Articles hub
+  archives/                   # Archives listing + each archive article
+  community/                  # Community listing + each community article
+  culture/                    # Culture listing + each culture article
 ```
 
 ## Add a new magazine issue
 
-1. Drop the cover image into `public/assets/images/magazines/`  
-   Example: `vol-5-august-2026.jpg`
-2. Append an entry to `public/content/magazines/index.json`:
-
-```json
-{
-  "id": "vol-5-august-2026",
-  "title": "RASA - VOL. 5 - August 2026",
-  "volume": 5,
-  "month": "August",
-  "year": 2026,
-  "cover": "assets/images/magazines/vol-5-august-2026.jpg",
-  "driveUrl": "https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing",
-  "published": true
-}
-```
-
-3. (Optional) Update the home MAGAZINE nav thumbnail in `site.json` → `home.nav` to the newest cover.
+1. Drop the cover image into `public/assets/images/magazines/`
+2. Drop the PDF into `public/assets/magazines/pdfs/` (prefer under ~25MB)
+3. Append an entry to `public/content/magazines/index.json`
+4. Optional: update home MAGAZINE nav thumb in `site.json`
 
 ## Add a new article
 
-1. Choose category folder: `archives`, `community`, or `culture`
-2. Add cover image under `public/assets/images/articles/`
-3. Create `public/content/articles/{category}/{slug}.json`:
+Articles are **not** JSON. Create a component under the right category folder.
 
-```json
-{
-  "slug": "my-new-article-slug",
-  "category": "archives",
-  "title": "Full article title shown on the page",
-  "cardTitle": "Shorter title for category cards",
-  "cardSubtitle": "Optional subtitle",
-  "date": "2026-08-01",
-  "cover": "assets/images/articles/my-cover.jpg",
-  "hero": "assets/images/articles/my-hero.jpg",
-  "images": [],
-  "published": true,
-  "paragraphs": [
-    "First paragraph...",
-    "Second paragraph..."
-  ]
-}
-```
+Example — new Archives piece at `/archives/my-piece`:
 
-4. Register it in `public/content/articles/manifest.json`:
+1. Add images under `public/assets/images/articles/`
+2. Create folder `src/app/pages/archives/my-piece/` with:
+   - `my-piece.ts` — empty component class
+   - `my-piece.html` — raw HTML (title, paragraphs, images, layout)
+   - `my-piece.scss` — `@use '../../shared/article-page' as *;` (plus any page-specific tweaks)
+3. Register the route in `src/app/app.routes.ts`
+4. Add a card link on the category listing (`archives.html` / `community.html` / `culture.html`)
 
-```json
-[
-  "archives/spiritual-odyssey.json",
-  "archives/my-new-article-slug.json"
-]
-```
+Shared article look lives in `src/app/pages/shared/_article-page.scss`.  
+Shared category listing look lives in `src/app/pages/shared/_category-page.scss`.
+
+You can rearrange layout per article freely in that page’s HTML — no shared `paragraphs[]` mapping.
 
 ## Add / edit video series
 
-Edit `public/content/videos/index.json` — update titles, descriptions, playlist URLs, and embed URLs.
+Edit `public/content/videos/index.json`.
 
-## Edit landing page copy
+## Edit landing page / partnership
 
-Edit `public/content/site.json` → `home.introParagraphs`, nav labels/images, and social links.
-
-## Edit Partnership & Contact page
-
-Edit `public/content/partnership.json` for sponsorship, collaboration, editorial, and contact copy.
-Phone / email / Instagram links stay in `site.json` → `links`.
-
-## Publish flag
-
-Set `"published": false` on any magazine or article to hide it without deleting the file.
+- Home: `public/content/site.json`
+- Partnership: `public/content/partnership.json`

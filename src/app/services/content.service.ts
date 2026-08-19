@@ -1,9 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, forkJoin, map, of, shareReplay, switchMap } from 'rxjs';
+import { Observable, map, shareReplay } from 'rxjs';
 import {
-  ArticlePost,
-  ArticlesIndex,
   MagazineIssue,
   PartnershipContent,
   SiteContent,
@@ -29,23 +27,6 @@ export class ContentService {
       shareReplay(1),
     );
 
-  private readonly articlesIndex$ = this.http
-    .get<ArticlesIndex>('content/articles/index.json')
-    .pipe(shareReplay(1));
-
-  private readonly articles$ = this.http
-    .get<string[]>('content/articles/manifest.json')
-    .pipe(
-      switchMap((paths) => {
-        if (!paths.length) return of([] as ArticlePost[]);
-        return forkJoin(
-          paths.map((path) => this.http.get<ArticlePost>(`content/articles/${path}`)),
-        );
-      }),
-      map((posts) => posts.filter((p) => p.published)),
-      shareReplay(1),
-    );
-
   private readonly videos$ = this.http
     .get<VideosIndex>('content/videos/index.json')
     .pipe(shareReplay(1));
@@ -62,22 +43,8 @@ export class ContentService {
     return this.magazines$;
   }
 
-  getArticlesIndex(): Observable<ArticlesIndex> {
-    return this.articlesIndex$;
-  }
-
-  getArticles(): Observable<ArticlePost[]> {
-    return this.articles$;
-  }
-
-  getArticlesByCategory(categoryId: string): Observable<ArticlePost[]> {
-    return this.articles$.pipe(
-      map((posts) => posts.filter((p) => p.category === categoryId)),
-    );
-  }
-
-  getArticle(slug: string): Observable<ArticlePost | undefined> {
-    return this.articles$.pipe(map((posts) => posts.find((p) => p.slug === slug)));
+  getMagazine(id: string): Observable<MagazineIssue | undefined> {
+    return this.magazines$.pipe(map((issues) => issues.find((i) => i.id === id)));
   }
 
   getVideos(): Observable<VideosIndex> {

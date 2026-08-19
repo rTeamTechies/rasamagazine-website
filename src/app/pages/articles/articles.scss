@@ -1,5 +1,5 @@
 .articles {
-  background: var(--teal);
+  background: rgb(1, 77, 78);
   color: #fff;
   min-height: 100vh;
   padding: 3.25rem 0 3.5rem;
@@ -60,13 +60,4 @@ header p {
     opacity: 0.9;
     transform: translateY(-4px);
   }
-}
-
-:host ::ng-deep .back-link {
-  color: #fff;
-  font-family: var(--font-body);
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  margin-top: 2.5rem;
 }

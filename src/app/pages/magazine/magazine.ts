@@ -1,12 +1,13 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ContentService } from '../../services/content.service';
-import { BackLink } from '../../shared/back-link/back-link';
+import { MagazineIssue } from '../../data/models';
 import { HCarousel } from '../../shared/h-carousel/h-carousel';
 
 @Component({
   selector: 'app-magazine',
-  imports: [BackLink, AsyncPipe, HCarousel],
+  imports: [AsyncPipe, HCarousel, RouterLink],
   templateUrl: './magazine.html',
   styleUrl: './magazine.scss',
 })
@@ -14,4 +15,8 @@ export class Magazine {
   private readonly content = inject(ContentService);
   readonly site$ = this.content.getSite();
   readonly issues$ = this.content.getMagazines();
+
+  hasPdf(issue: MagazineIssue): boolean {
+    return !!issue.pdfUrl?.trim();
+  }
 }

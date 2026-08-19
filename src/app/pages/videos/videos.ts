@@ -13,7 +13,6 @@ import {
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ContentService } from '../../services/content.service';
-import { BackLink } from '../../shared/back-link/back-link';
 
 type VideoSlot = {
   id: string;
@@ -27,7 +26,7 @@ type VideoSlot = {
 
 @Component({
   selector: 'app-videos',
-  imports: [BackLink],
+  imports: [],
   templateUrl: './videos.html',
   styleUrl: './videos.scss',
 })

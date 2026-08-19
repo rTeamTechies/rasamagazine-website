@@ -2,11 +2,10 @@ import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { map } from 'rxjs';
 import { ContentService } from '../../services/content.service';
-import { BackLink } from '../../shared/back-link/back-link';
 
 @Component({
   selector: 'app-about',
-  imports: [BackLink, AsyncPipe],
+  imports: [AsyncPipe],
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })

@@ -90,36 +90,11 @@ export interface MagazineIssue {
   month: string;
   year: number;
   cover: string;
+  /** Local PDF under public/ — preferred when set */
+  pdfUrl?: string;
+  /** Fallback until PDF is uploaded */
   driveUrl: string;
   published: boolean;
-}
-
-export interface ArticleCategory {
-  id: string;
-  title: string;
-  navLabel: string;
-  path: string;
-  theme: string;
-  thumb: string;
-}
-
-export interface ArticlesIndex {
-  intro: string;
-  categories: ArticleCategory[];
-}
-
-export interface ArticlePost {
-  slug: string;
-  category: string;
-  title: string;
-  cardTitle: string;
-  cardSubtitle: string;
-  date: string;
-  cover: string;
-  hero: string;
-  images: string[];
-  published: boolean;
-  paragraphs: string[];
 }
 
 export interface VideoSeries {

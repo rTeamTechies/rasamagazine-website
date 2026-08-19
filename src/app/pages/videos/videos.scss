@@ -62,16 +62,11 @@ header p {
 .watch {
   display: inline-block;
   margin-top: 1rem;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  text-decoration: none;
   color: #fff;
+
+  &:hover {
+    opacity: 0.85;
+  }
 }
 
-:host ::ng-deep .back-link {
-  color: #fff;
-  font-family: var(--font-body);
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  margin-top: 2.5rem;
-}

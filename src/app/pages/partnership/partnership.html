@@ -6,24 +6,24 @@
           <p class="kicker">RASA Magazine</p>
           <h1 class="display">{{ page.title }}</h1>
           <p class="hero-lead">{{ page.intro[0] }}</p>
-          <div class="jump">
-            <a href="#sponsor">Sponsor</a>
-            <a href="#collaborate">Collaborate</a>
-            <a href="#contact">Contact</a>
-          </div>
         </div>
       </header>
 
       <section class="pathways">
-        <a class="path" href="#sponsor">
+        <a class="path" routerLink="/partnership-contact" fragment="sponsor">
           <span class="path-label">{{ page.sponsor.eyebrow }}</span>
           <strong class="display">{{ page.sponsor.title }}</strong>
           <span class="path-go">Explore sponsorship →</span>
         </a>
-        <a class="path" href="#collaborate">
+        <a class="path" routerLink="/partnership-contact" fragment="collaborate">
           <span class="path-label">{{ page.collaborations.eyebrow }}</span>
           <strong class="display">{{ page.collaborations.title }}</strong>
           <span class="path-go">See collaboration options →</span>
+        </a>
+        <a class="path" routerLink="/partnership-contact" fragment="contact">
+          <span class="path-label">Contact</span>
+          <strong class="display">{{ page.contact.title }}</strong>
+          <span class="path-go">Get in touch →</span>
         </a>
       </section>
 
@@ -126,7 +126,6 @@
           </div>
 
           <p class="closing">{{ page.contact.closing }}</p>
-          <app-back-link />
         </div>
       </section>
     </div>

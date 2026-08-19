@@ -1,12 +1,12 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ContentService } from '../../services/content.service';
-import { BackLink } from '../../shared/back-link/back-link';
 import { HCarousel } from '../../shared/h-carousel/h-carousel';
 
 @Component({
   selector: 'app-partnership',
-  imports: [AsyncPipe, BackLink, HCarousel],
+  imports: [AsyncPipe, HCarousel, RouterLink],
   templateUrl: './partnership.html',
   styleUrl: './partnership.scss',
 })
