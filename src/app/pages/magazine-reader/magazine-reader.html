@@ -1,39 +1,88 @@
-@if (issue$ | async; as issue) {
-  @if (issue.pdfUrl) {
+@if (issueState(); as state) {
+  @if (state.status === 'loading') {
     <div class="page reader">
-      <header class="bar">
-        <div class="bar-inner">
-          <a class="back" routerLink="/magazine">← Magazines</a>
-          <h1 class="display">{{ issue.title }}</h1>
-          <a class="download" [href]="issue.pdfUrl" download target="_blank" rel="noopener noreferrer"
-            >Download PDF</a
-          >
-        </div>
-      </header>
-
-      <div class="viewer">
-        <iframe [src]="pdfSrc(issue.pdfUrl)" [title]="issue.title"></iframe>
-      </div>
+      <p class="status">Loading magazine…</p>
     </div>
+  } @else if (state.status === 'ready' && state.issue; as current) {
+    @if (current.pdfUrl) {
+      <div class="page reader" tabindex="0" (keydown)="onKeydown($event)">
+        <header class="bar">
+          <div class="bar-inner">
+            <a class="back" routerLink="/magazine">← Magazines</a>
+            <h1 class="display">{{ current.title }}</h1>
+            <a
+              class="download"
+              [href]="current.pdfUrl"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              >Download PDF</a
+            >
+          </div>
+        </header>
+
+        <div class="viewer">
+          @if (loading()) {
+            <p class="status">Loading magazine…</p>
+          } @else if (error()) {
+            <div class="status-block">
+              <p class="status">{{ error() }}</p>
+              <a
+                class="download-fallback"
+                [href]="current.pdfUrl"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                >Download PDF</a
+              >
+            </div>
+          } @else {
+            <div
+              class="stage"
+              #stage
+              (touchstart)="onTouchStart($event)"
+              (touchend)="onTouchEnd($event)"
+            >
+              <canvas #pageCanvas></canvas>
+            </div>
+
+            <div class="pager">
+              <button type="button" class="pager-btn" (click)="prev()" [disabled]="page() <= 1">
+                ‹ Prev
+              </button>
+              <span class="page-label">{{ page() }} / {{ pageCount() }}</span>
+              <button
+                type="button"
+                class="pager-btn"
+                (click)="next()"
+                [disabled]="page() >= pageCount()"
+              >
+                Next ›
+              </button>
+            </div>
+          }
+        </div>
+      </div>
+    } @else {
+      <div class="page missing">
+        <div class="wrap">
+          <h1 class="display">PDF not available</h1>
+          <p>This issue does not have an uploaded PDF yet.</p>
+          @if (current.driveUrl) {
+            <a class="drive" [href]="current.driveUrl" target="_blank" rel="noopener noreferrer"
+              >Open on Google Drive</a
+            >
+          }
+          <a class="drive" routerLink="/magazine">Magazines</a>
+        </div>
+      </div>
+    }
   } @else {
     <div class="page missing">
       <div class="wrap">
-        <h1 class="display">PDF not available</h1>
-        <p>This issue does not have an uploaded PDF yet.</p>
-        @if (issue.driveUrl) {
-          <a class="drive" [href]="issue.driveUrl" target="_blank" rel="noopener noreferrer"
-            >Open on Google Drive</a
-          >
-        }
+        <h1 class="display">Issue not found</h1>
         <a class="drive" routerLink="/magazine">Magazines</a>
       </div>
     </div>
   }
-} @else {
-  <div class="page missing">
-    <div class="wrap">
-      <h1 class="display">Issue not found</h1>
-      <a class="drive" routerLink="/magazine">Magazines</a>
-    </div>
-  </div>
 }
