@@ -7,6 +7,7 @@ import { Archives } from './pages/archives/archives';
 import { SpiritualOdyssey } from './pages/archives/spiritual-odyssey/spiritual-odyssey';
 import { CallOfTheFlute } from './pages/archives/call-of-the-flute/call-of-the-flute';
 import { EveningOfAharya } from './pages/archives/evening-of-aharya/evening-of-aharya';
+import { LivingTheDance } from './pages/archives/living-the-dance/living-the-dance';
 import { Community } from './pages/community/community';
 import { QueerCommunity } from './pages/community/queer-community/queer-community';
 import { AshadiEkadashi } from './pages/community/ashadi-ekadashi/ashadi-ekadashi';
@@ -23,44 +24,55 @@ export const routes: Routes = [
   { path: 'magazine', component: Magazine, title: 'Magazine | RASA' },
   { path: 'magazine/:id', component: MagazineReader, title: 'Read | RASA' },
   { path: 'articles', component: Articles, title: 'Articles | RASA' },
-  { path: 'archives', component: Archives, title: 'Archives | RASA' },
+  { path: 'articles/archives', component: Archives, title: 'Archives | RASA' },
   {
-    path: 'archives/spiritual-odyssey',
+    path: 'articles/archives/spiritual-odyssey',
     component: SpiritualOdyssey,
     title: 'A Spiritual Odyssey | RASA',
   },
   {
-    path: 'archives/call-of-the-flute',
+    path: 'articles/archives/call-of-the-flute',
     component: CallOfTheFlute,
     title: 'Call of the Flute | RASA',
   },
   {
-    path: 'archives/evening-of-aharya',
+    path: 'articles/archives/evening-of-aharya',
     component: EveningOfAharya,
     title: 'An Evening of Aharya | RASA',
   },
-  { path: 'community', component: Community, title: 'Community | RASA' },
   {
-    path: 'community/queer-community',
+    path: 'articles/archives/living-the-dance',
+    component: LivingTheDance,
+    title: 'Living the Dance | RASA',
+  },
+  { path: 'articles/community', component: Community, title: 'Community | RASA' },
+  {
+    path: 'articles/community/queer-community',
     component: QueerCommunity,
     title: 'Queer Community | RASA',
   },
   {
-    path: 'community/ashadi-ekadashi',
+    path: 'articles/community/ashadi-ekadashi',
     component: AshadiEkadashi,
     title: 'Ashadi Ekadashi | RASA',
   },
-  { path: 'culture', component: Culture, title: 'Culture | RASA' },
+  { path: 'articles/culture', component: Culture, title: 'Culture | RASA' },
   {
-    path: 'culture/ranjani-gayatri',
+    path: 'articles/culture/ranjani-gayatri',
     component: RanjaniGayatri,
     title: 'Ranjani-Gayatri | RASA',
   },
   {
-    path: 'culture/ratha-yatra',
+    path: 'articles/culture/ratha-yatra',
     component: RathaYatra,
     title: 'Ratha Yatra | RASA',
   },
+  { path: 'archives', redirectTo: 'articles/archives', pathMatch: 'full' },
+  { path: 'archives/:article', redirectTo: 'articles/archives/:article' },
+  { path: 'community', redirectTo: 'articles/community', pathMatch: 'full' },
+  { path: 'community/:article', redirectTo: 'articles/community/:article' },
+  { path: 'culture', redirectTo: 'articles/culture', pathMatch: 'full' },
+  { path: 'culture/:article', redirectTo: 'articles/culture/:article' },
   { path: 'videos', component: Videos, title: 'Videos | RASA' },
   {
     path: 'partnership-contact',

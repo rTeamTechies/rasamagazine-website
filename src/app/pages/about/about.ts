@@ -1,6 +1,5 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { map } from 'rxjs';
 import { ContentService } from '../../services/content.service';
 
 @Component({
@@ -11,6 +10,9 @@ import { ContentService } from '../../services/content.service';
 })
 export class About {
   readonly site$ = inject(ContentService).getSite();
+
+  /** Eight-way rotation for layered floral petals (degrees). */
+  readonly petalAngles = [0, 45, 90, 135, 180, 225, 270, 315];
 
   readonly paragraphs = [
     'I am a Masters Graduate in the field of Communication and Journalism from Somaiya Vidyavihar University.',

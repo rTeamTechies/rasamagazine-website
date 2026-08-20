@@ -1,39 +1,220 @@
 @if (site$ | async; as site) {
   <div class="page about">
+    <div class="about-atmosphere" aria-hidden="true">
+      <span class="glow glow-a"></span>
+      <span class="glow glow-b"></span>
+      <span class="glow glow-c"></span>
+      <span class="ring ring-a"></span>
+      <span class="ring ring-b"></span>
+
+      <span class="flower flower-a">
+        <svg viewBox="0 0 100 100" focusable="false">
+          <defs>
+            <linearGradient id="about-petal-a" x1="50" y1="12" x2="50" y2="88" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#fffff0" />
+              <stop offset="42%" stop-color="#e8dcc8" />
+              <stop offset="100%" stop-color="#014d4e" stop-opacity="0.55" />
+            </linearGradient>
+            <linearGradient id="about-petal-inner-a" x1="50" y1="28" x2="50" y2="72" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#fffff0" stop-opacity="0.95" />
+              <stop offset="100%" stop-color="#800020" stop-opacity="0.45" />
+            </linearGradient>
+            <radialGradient id="about-core-a" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#fffff0" />
+              <stop offset="55%" stop-color="#d4b896" />
+              <stop offset="100%" stop-color="#014d4e" stop-opacity="0.65" />
+            </radialGradient>
+          </defs>
+          <g class="petals-outer">
+            @for (i of petalAngles; track i) {
+              <path
+                [attr.transform]="'rotate(' + i + ' 50 50)'"
+                d="M50 50 C50 34 54 20 50 14 C46 20 50 34 50 50"
+                fill="url(#about-petal-a)"
+                stroke="#fffff0"
+                stroke-opacity="0.35"
+                stroke-width="0.5"
+              />
+            }
+          </g>
+          <g class="petals-inner" transform="rotate(22.5 50 50)">
+            @for (i of petalAngles; track i) {
+              <path
+                [attr.transform]="'rotate(' + i + ' 50 50)'"
+                d="M50 50 C50 38 53 30 50 26 C47 30 50 38 50 50"
+                fill="url(#about-petal-inner-a)"
+                stroke="#d8cbb8"
+                stroke-opacity="0.4"
+                stroke-width="0.4"
+              />
+            }
+          </g>
+          <circle cx="50" cy="50" r="9" fill="url(#about-core-a)" />
+          <circle cx="50" cy="50" r="4" fill="#fffff0" fill-opacity="0.9" />
+        </svg>
+      </span>
+      <span class="flower flower-b">
+        <svg viewBox="0 0 100 100" focusable="false">
+          <defs>
+            <linearGradient id="about-petal-b" x1="50" y1="12" x2="50" y2="88" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#fffff0" />
+              <stop offset="40%" stop-color="#ede3d0" />
+              <stop offset="100%" stop-color="#014d4e" stop-opacity="0.5" />
+            </linearGradient>
+            <linearGradient id="about-petal-inner-b" x1="50" y1="28" x2="50" y2="72" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#fffff0" stop-opacity="0.9" />
+              <stop offset="100%" stop-color="#5c0018" stop-opacity="0.4" />
+            </linearGradient>
+            <radialGradient id="about-core-b" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#fffff0" />
+              <stop offset="60%" stop-color="#c9a86c" stop-opacity="0.85" />
+              <stop offset="100%" stop-color="#014d4e" stop-opacity="0.55" />
+            </radialGradient>
+          </defs>
+          <g class="petals-outer">
+            @for (i of petalAngles; track i) {
+              <path
+                [attr.transform]="'rotate(' + i + ' 50 50)'"
+                d="M50 50 C50 34 54 20 50 14 C46 20 50 34 50 50"
+                fill="url(#about-petal-b)"
+                stroke="#fffff0"
+                stroke-opacity="0.32"
+                stroke-width="0.5"
+              />
+            }
+          </g>
+          <g class="petals-inner" transform="rotate(22.5 50 50)">
+            @for (i of petalAngles; track i) {
+              <path
+                [attr.transform]="'rotate(' + i + ' 50 50)'"
+                d="M50 50 C50 38 53 30 50 26 C47 30 50 38 50 50"
+                fill="url(#about-petal-inner-b)"
+                stroke="#d8cbb8"
+                stroke-opacity="0.35"
+                stroke-width="0.4"
+              />
+            }
+          </g>
+          <circle cx="50" cy="50" r="9" fill="url(#about-core-b)" />
+          <circle cx="50" cy="50" r="4" fill="#fffff0" fill-opacity="0.88" />
+        </svg>
+      </span>
+      <span class="flower flower-c">
+        <svg viewBox="0 0 100 100" focusable="false">
+          <defs>
+            <linearGradient id="about-petal-c" x1="50" y1="12" x2="50" y2="88" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#fffff0" />
+              <stop offset="42%" stop-color="#e8dcc8" />
+              <stop offset="100%" stop-color="#014d4e" stop-opacity="0.55" />
+            </linearGradient>
+            <linearGradient id="about-petal-inner-c" x1="50" y1="28" x2="50" y2="72" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#fffff0" stop-opacity="0.95" />
+              <stop offset="100%" stop-color="#800020" stop-opacity="0.45" />
+            </linearGradient>
+            <radialGradient id="about-core-c" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#fffff0" />
+              <stop offset="55%" stop-color="#d4b896" />
+              <stop offset="100%" stop-color="#014d4e" stop-opacity="0.65" />
+            </radialGradient>
+          </defs>
+          <g class="petals-outer">
+            @for (i of petalAngles; track i) {
+              <path
+                [attr.transform]="'rotate(' + i + ' 50 50)'"
+                d="M50 50 C50 34 54 20 50 14 C46 20 50 34 50 50"
+                fill="url(#about-petal-c)"
+                stroke="#fffff0"
+                stroke-opacity="0.35"
+                stroke-width="0.5"
+              />
+            }
+          </g>
+          <g class="petals-inner" transform="rotate(22.5 50 50)">
+            @for (i of petalAngles; track i) {
+              <path
+                [attr.transform]="'rotate(' + i + ' 50 50)'"
+                d="M50 50 C50 38 53 30 50 26 C47 30 50 38 50 50"
+                fill="url(#about-petal-inner-c)"
+                stroke="#d8cbb8"
+                stroke-opacity="0.4"
+                stroke-width="0.4"
+              />
+            }
+          </g>
+          <circle cx="50" cy="50" r="9" fill="url(#about-core-c)" />
+          <circle cx="50" cy="50" r="4" fill="#fffff0" fill-opacity="0.9" />
+        </svg>
+      </span>
+    </div>
+
     <div class="wrap">
       <section class="bio">
         <div class="bio-copy">
+          <p class="eyebrow display">{{ site.editor }}</p>
           <h1 class="display">About me</h1>
           @for (p of paragraphs; track p) {
             <p>{{ p }}</p>
           }
         </div>
-        <img class="portrait" [src]="site.brand.aboutPortrait" [alt]="site.editor" />
+
+        <figure class="portrait-frame">
+          <span class="portrait-halo"></span>
+          <span class="portrait-ring"></span>
+          <div class="portrait-card">
+            <img class="portrait" [src]="site.brand.aboutPortrait" [alt]="site.editor" />
+          </div>
+        </figure>
       </section>
 
-      <h2 class="display links-heading">
+      <!-- <h2 class="display links-heading">
         Here are some important<br />links so you can get to know<br />me
-      </h2>
+      </h2> -->
 
       <section class="socials">
         <h3 class="display">My socials</h3>
         <div class="social-grid">
-          <a class="social-card" [href]="site.links.youtube" target="_blank" rel="noopener noreferrer">
-            <p>
-              Follow me on <strong>YouTube</strong> to see exciting videos of interviews with
-              experts, friends, random vlogs and more
-            </p>
-          </a>
           <a
-            class="social-card"
+            class="social-card social-card--youtube"
+            [href]="site.links.youtube"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="social-card-head">
+              <span class="social-logo-wrap">
+                <img [src]="site.brand.youtubeIcon" alt="" class="social-logo" />
+              </span>
+              <div class="social-meta">
+                <span class="social-platform">YouTube</span>
+                <span class="social-handle">&#64;artsyanju</span>
+              </div>
+            </div>
+            <p>
+              Interviews with experts, friends, random vlogs and more — follow along on
+              YouTube.
+            </p>
+            <span class="social-cta">Open YouTube channel</span>
+          </a>
+
+          <a
+            class="social-card social-card--instagram"
             [href]="site.links.instagramPersonal"
             target="_blank"
             rel="noopener noreferrer"
           >
+            <div class="social-card-head">
+              <span class="social-logo-wrap">
+                <img [src]="site.brand.instagramIcon" alt="" class="social-logo" />
+              </span>
+              <div class="social-meta">
+                <span class="social-platform">Instagram</span>
+                <span class="social-handle">&#64;artsyanju</span>
+              </div>
+            </div>
             <p>
-              Follow me on <strong>Instagram</strong> to see exciting comedy reels of relatable
-              sketches, rants and more
+              Comedy reels, relatable sketches, rants and nano-creator content — find it all on
+              Instagram.
             </p>
+            <span class="social-cta">Open Instagram profile</span>
           </a>
         </div>
       </section>
@@ -42,8 +223,9 @@
         <h3 class="display">My work</h3>
         <a class="cv" [href]="site.links.cv" target="_blank" rel="noopener noreferrer">
           Here is my CV and Portfolio
+          <span class="cv-arrow" aria-hidden="true">→</span>
         </a>
       </section>
-</div>
+    </div>
   </div>
 }

@@ -40,6 +40,7 @@ export interface SiteContent {
     heroVisuals: HomeHeroVisual[];
     nav: HomeNavItem[];
     partnershipLinkLabel: string;
+    partnershipHeroLabel: string;
     partnershipLinkPath: string;
   };
 }

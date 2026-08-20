@@ -1,0 +1,11 @@
+<div class="article-back-wrap">
+  <div #sentinel class="article-back-sentinel" aria-hidden="true"></div>
+  <a
+    class="article-back-btn"
+    [class.is-visible]="visible"
+    [routerLink]="backLink"
+  >
+    <span class="article-back-arrow" aria-hidden="true">←</span>
+    <span>{{ backLabel }}</span>
+  </a>
+</div>

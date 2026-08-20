@@ -5,9 +5,11 @@ import {
   OnDestroy,
   viewChild,
 } from '@angular/core';
+import { ArticleBack } from '../../../shared/article-back/article-back';
 
 @Component({
   selector: 'app-spiritual-odyssey',
+  imports: [ArticleBack],
   templateUrl: './spiritual-odyssey.html',
   styleUrl: './spiritual-odyssey.scss',
 })

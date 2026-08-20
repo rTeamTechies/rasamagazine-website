@@ -5,9 +5,11 @@ import {
   OnDestroy,
   viewChildren,
 } from '@angular/core';
+import { ArticleBack } from '../../../shared/article-back/article-back';
 
 @Component({
   selector: 'app-evening-of-aharya',
+  imports: [ArticleBack],
   templateUrl: './evening-of-aharya.html',
   styleUrl: './evening-of-aharya.scss',
 })

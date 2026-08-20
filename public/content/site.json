@@ -17,7 +17,7 @@
     "artsyLogo": "assets/images/brand/artsy-anju.png",
     "youtubeIcon": "assets/images/brand/youtube.png",
     "instagramIcon": "assets/images/brand/instagram.png",
-    "aboutPortrait": "assets/images/brand/about-portrait.png"
+    "aboutPortrait": "assets/images/articles/nav-about.png"
   },
   "home": {
     "heroLead": "A digital magazine exploring classical arts, cinema, fashion, food, heritage and the creative voices shaping culture today.",
@@ -63,6 +63,7 @@
       }
     ],
     "partnershipLinkLabel": "PARTNERSHIP & CONTACT",
+    "partnershipHeroLabel": "Partnership & Collaboration",
     "partnershipLinkPath": "/partnership-contact"
   }
 }

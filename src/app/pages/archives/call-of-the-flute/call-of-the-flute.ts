@@ -5,9 +5,11 @@ import {
   OnDestroy,
   viewChildren,
 } from '@angular/core';
+import { ArticleBack } from '../../../shared/article-back/article-back';
 
 @Component({
   selector: 'app-call-of-the-flute',
+  imports: [ArticleBack],
   templateUrl: './call-of-the-flute.html',
   styleUrl: './call-of-the-flute.scss',
 })

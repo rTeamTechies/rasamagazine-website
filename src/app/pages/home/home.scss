@@ -227,6 +227,17 @@
   background: color-mix(in srgb, var(--charcoal) 6%, transparent);
 }
 
+.cta.outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+}
+
+.cta.outline:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
 .play {
   width: 0;
   height: 0;
@@ -407,7 +418,7 @@
 
 .intro-band {
   background: var(--ivory);
-  padding: clamp(3rem, 6vw, 4.5rem) 0;
+  padding: clamp(2rem, 6vw, 4.5rem) 0;
 }
 
 .intro-inner {
@@ -418,7 +429,7 @@
   p {
     margin: 0 0 1.2rem;
     font-family: var(--font-display);
-    font-size: 2.06rem;
+    font-size: clamp(1.05rem, 1rem + 1.1vw, 2.06rem);
     line-height: 1.72;
     color: var(--charcoal);
   }
@@ -554,6 +565,15 @@
 
   .cta {
     width: 100%;
+  }
+
+  .intro-inner {
+    width: calc(100% - 2rem);
+
+    p {
+      line-height: 1.58;
+      margin-bottom: 1rem;
+    }
   }
 }
 

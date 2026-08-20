@@ -5,9 +5,11 @@ import {
   OnDestroy,
   viewChildren,
 } from '@angular/core';
+import { ArticleBack } from '../../../shared/article-back/article-back';
 
 @Component({
   selector: 'app-ashadi-ekadashi',
+  imports: [ArticleBack],
   templateUrl: './ashadi-ekadashi.html',
   styleUrl: './ashadi-ekadashi.scss',
 })

@@ -93,10 +93,19 @@
               <span class="play" aria-hidden="true"></span>
               Watch Videos
             </a>
+            <a class="cta outline" [routerLink]="site.home.partnershipLinkPath">
+              {{ site.home.partnershipHeroLabel }}
+            </a>
           </div>
         </div>
 
-        <div class="hero-visual">
+        <div
+          class="hero-visual"
+          (mouseenter)="pauseAutoSlide()"
+          (mouseleave)="resumeAutoSlide()"
+          (touchstart)="pauseAutoSlide()"
+          (touchend)="resumeAutoSlide()"
+        >
           <button
             type="button"
             class="fan-nav prev"

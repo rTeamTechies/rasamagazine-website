@@ -5,9 +5,11 @@ import {
   OnDestroy,
   viewChildren,
 } from '@angular/core';
+import { ArticleBack } from '../../../shared/article-back/article-back';
 
 @Component({
   selector: 'app-ranjani-gayatri',
+  imports: [ArticleBack],
   templateUrl: './ranjani-gayatri.html',
   styleUrl: './ranjani-gayatri.scss',
 })

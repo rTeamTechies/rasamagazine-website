@@ -1,4 +1,4 @@
-.ranjani-gayatri {
+.living-the-dance {
   min-height: 100vh;
   padding: clamp(2.5rem, 5vw, 3.5rem) 0 clamp(3rem, 6vw, 4.5rem);
   background: rgb(1, 77, 78);
@@ -33,6 +33,10 @@ h1 {
   color: var(--ivory);
   text-align: justify;
   hyphens: auto;
+
+  em {
+    font-style: italic;
+  }
 }
 
 .prose p:last-child {
@@ -43,45 +47,37 @@ h1 {
   margin: 0 0 1.75rem;
 }
 
-.full-media img,
-.full-media video {
+.full-media img {
   width: 100%;
   display: block;
   border: 2px solid var(--charcoal);
   background: #000;
-}
-
-.full-media img {
   aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: center top;
-}
-
-.video-frame {
-  overflow: hidden;
-}
-
-.video-frame video {
-  aspect-ratio: 16 / 9;
   object-fit: cover;
   object-position: center center;
 }
 
-.video-top video {
-  object-position: top center;
+.hero-media img,
+.portrait-media img {
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center top;
+}
+
+.credit {
+  display: block;
+  margin-top: 0.55rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-style: italic;
+  text-align: center;
+  color: var(--ivory);
+  opacity: 0.9;
 }
 
 @media (max-width: 760px) {
   h1 {
     font-size: clamp(1.3rem, 5.5vw, 1.75rem);
   }
-}
-
-.credit {
-  margin: 0 0 1.75rem;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  line-height: 1.4;
-  text-align: center;
-  color: var(--ivory);
 }

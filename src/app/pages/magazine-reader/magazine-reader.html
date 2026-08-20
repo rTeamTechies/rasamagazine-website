@@ -12,7 +12,7 @@
             <h1 class="display">{{ current.title }}</h1>
             <a
               class="download"
-              [href]="current.pdfUrl"
+              [href]="assetUrl(current.pdfUrl)"
               download
               target="_blank"
               rel="noopener noreferrer"
@@ -29,7 +29,7 @@
               <p class="status">{{ error() }}</p>
               <a
                 class="download-fallback"
-                [href]="current.pdfUrl"
+                [href]="assetUrl(current.pdfUrl)"
                 download
                 target="_blank"
                 rel="noopener noreferrer"

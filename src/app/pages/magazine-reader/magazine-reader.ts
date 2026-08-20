@@ -18,7 +18,7 @@ import { map, startWith, switchMap } from 'rxjs';
 import type { MagazineIssue } from '../../data/models';
 import { ContentService } from '../../services/content.service';
 
-GlobalWorkerOptions.workerSrc = 'assets/pdfjs/pdf.worker.min.mjs';
+GlobalWorkerOptions.workerSrc = `${document.baseURI.replace(/\/$/, '')}/assets/pdfjs/pdf.worker.min.mjs`;
 
 type IssueState =
   | { status: 'loading' }
@@ -127,8 +127,20 @@ export class MagazineReader implements OnDestroy {
     }
   }
 
+  assetUrl(path: string): string {
+    return this.resolveAssetUrl(path);
+  }
+
+  private resolveAssetUrl(path: string): string {
+    if (/^https?:\/\//i.test(path)) {
+      return path;
+    }
+    const normalized = path.startsWith('/') ? path : `/${path}`;
+    return new URL(normalized, document.baseURI).href;
+  }
+
   private async loadPdf(pdfUrl: string): Promise<void> {
-    const absoluteUrl = new URL(pdfUrl, window.location.href).href;
+    const absoluteUrl = this.resolveAssetUrl(pdfUrl);
     if (this.loadedUrl === absoluteUrl && this.pdf) {
       return;
     }
@@ -143,8 +155,14 @@ export class MagazineReader implements OnDestroy {
     this.loadedUrl = null;
 
     try {
+      const response = await fetch(absoluteUrl);
+      if (!response.ok) {
+        throw new Error(`PDF fetch failed (${response.status})`);
+      }
+
+      const data = await response.arrayBuffer();
       const loadingTask = getDocument({
-        url: absoluteUrl,
+        data,
         withCredentials: false,
       });
       this.pdf = await loadingTask.promise;

@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { ArticleBack } from '../../../shared/article-back/article-back';
 
 @Component({
-  selector: 'app-queer-community',
+  selector: 'app-living-the-dance',
   imports: [ArticleBack],
-  templateUrl: './queer-community.html',
-  styleUrl: './queer-community.scss',
+  templateUrl: './living-the-dance.html',
+  styleUrl: './living-the-dance.scss',
 })
-export class QueerCommunity {}
+export class LivingTheDance {}
