@@ -1,10 +1,11 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ContentService } from '../../services/content.service';
+import { ArticleBack } from '../../shared/article-back/article-back';
 
 @Component({
   selector: 'app-about',
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, ArticleBack],
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })

@@ -26,15 +26,28 @@ h1 {
   overflow: hidden;
 }
 
-.lead-video {
+.lead-media {
   float: right;
   width: min(34%, 260px);
   margin: 0 0 1rem 1.5rem;
+}
+
+.lead-video {
+  width: 100%;
+  margin: 0;
   aspect-ratio: 9 / 16;
   object-fit: cover;
   border: 2px solid var(--charcoal);
   background: #000;
   display: block;
+}
+
+.lead-credit {
+  margin: 0.45rem 0 0;
+  font-size: 0.82rem;
+  text-align: center;
+  font-style: italic;
+  opacity: 0.9;
 }
 
 .lead-block p,
@@ -107,10 +120,14 @@ h1 {
 }
 
 @media (max-width: 760px) {
-  .lead-video {
+  .lead-media {
     float: none;
     width: min(260px, 70%);
     margin: 0 auto 1.15rem;
+  }
+
+  .lead-video {
+    width: 100%;
   }
 
   .triple-media {

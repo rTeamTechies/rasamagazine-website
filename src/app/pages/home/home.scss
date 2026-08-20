@@ -84,6 +84,62 @@
   animation-duration: 12s;
 }
 
+.flower-e {
+  width: clamp(64px, 8vw, 102px);
+  height: clamp(64px, 8vw, 102px);
+  right: clamp(6%, 10vw, 14%);
+  top: 18%;
+  left: auto;
+  color: color-mix(in srgb, var(--burgundy) 50%, transparent);
+  opacity: 0.48;
+  animation-delay: -4s;
+  animation-duration: 17s;
+}
+
+.flower-f {
+  width: clamp(52px, 6.5vw, 84px);
+  height: clamp(52px, 6.5vw, 84px);
+  right: clamp(2%, 5vw, 8%);
+  top: 42%;
+  left: auto;
+  color: color-mix(in srgb, var(--teal) 30%, var(--burgundy) 25%);
+  opacity: 0.42;
+  animation-delay: -7s;
+  animation-duration: 15s;
+}
+
+.flower-g {
+  width: clamp(40px, 5vw, 64px);
+  height: clamp(40px, 5vw, 64px);
+  right: clamp(14%, 18vw, 24%);
+  bottom: 12%;
+  top: auto;
+  left: auto;
+  color: color-mix(in srgb, var(--burgundy) 44%, transparent);
+  opacity: 0.38;
+  animation-delay: -11s;
+  animation-duration: 19s;
+}
+
+.flower-h {
+  width: clamp(44px, 5.5vw, 70px);
+  height: clamp(44px, 5.5vw, 70px);
+  left: clamp(42%, 48vw, 52%);
+  top: 12%;
+  color: color-mix(in srgb, var(--burgundy) 36%, transparent);
+  opacity: 0.32;
+  animation-delay: -6s;
+  animation-duration: 13s;
+}
+
+.home-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
 @keyframes bloom-drift {
   0%,
   100% {
@@ -417,11 +473,50 @@
 }
 
 .intro-band {
+  position: relative;
+  overflow: hidden;
   background: var(--ivory);
   padding: clamp(2rem, 6vw, 4.5rem) 0;
 }
 
+.flower-intro-a {
+  width: clamp(56px, 7vw, 88px);
+  height: clamp(56px, 7vw, 88px);
+  left: max(0.5rem, 2vw);
+  top: 8%;
+  color: color-mix(in srgb, var(--burgundy) 40%, transparent);
+  opacity: 0.42;
+  animation-delay: -3s;
+}
+
+.flower-intro-b {
+  width: clamp(42px, 5vw, 68px);
+  height: clamp(42px, 5vw, 68px);
+  right: max(1rem, 3vw);
+  bottom: 10%;
+  left: auto;
+  top: auto;
+  color: color-mix(in srgb, var(--teal) 28%, var(--burgundy) 18%);
+  opacity: 0.36;
+  animation-delay: -8s;
+  animation-duration: 18s;
+}
+
+.flower-intro-c {
+  width: clamp(34px, 4vw, 52px);
+  height: clamp(34px, 4vw, 52px);
+  left: 18%;
+  bottom: 18%;
+  top: auto;
+  color: color-mix(in srgb, var(--burgundy) 34%, transparent);
+  opacity: 0.3;
+  animation-delay: -12s;
+  animation-duration: 14s;
+}
+
 .intro-inner {
+  position: relative;
+  z-index: 1;
   width: min(920px, calc(100% - 3rem));
   margin: 0 auto;
   text-align: justify;
@@ -440,6 +535,8 @@
 }
 
 .nav-section {
+  position: relative;
+  overflow: hidden;
   background: var(--burgundy);
   padding: clamp(3rem, 5.5vw, 4rem) 0;
   display: flex;
@@ -449,7 +546,44 @@
   color: #fff;
 }
 
+.flower-nav-a {
+  width: clamp(68px, 8vw, 108px);
+  height: clamp(68px, 8vw, 108px);
+  left: max(0.25rem, 1.5vw);
+  top: 10%;
+  color: color-mix(in srgb, var(--ivory) 42%, transparent);
+  opacity: 0.45;
+  animation-delay: -5s;
+}
+
+.flower-nav-b {
+  width: clamp(48px, 6vw, 76px);
+  height: clamp(48px, 6vw, 76px);
+  right: max(0.5rem, 2vw);
+  top: 22%;
+  left: auto;
+  color: color-mix(in srgb, var(--warm-stone) 55%, var(--ivory));
+  opacity: 0.38;
+  animation-delay: -10s;
+  animation-duration: 16s;
+}
+
+.flower-nav-c {
+  width: clamp(38px, 4.5vw, 60px);
+  height: clamp(38px, 4.5vw, 60px);
+  right: 12%;
+  bottom: 8%;
+  top: auto;
+  left: auto;
+  color: color-mix(in srgb, var(--ivory) 35%, transparent);
+  opacity: 0.32;
+  animation-delay: -14s;
+  animation-duration: 20s;
+}
+
 .nav-carousel {
+  position: relative;
+  z-index: 1;
   width: min(1100px, calc(100% - 1.25rem));
   color: #fff;
 }
@@ -483,6 +617,8 @@
 }
 
 .partnership-cta {
+  position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -574,6 +710,14 @@
       line-height: 1.58;
       margin-bottom: 1rem;
     }
+  }
+
+  .flower-h,
+  .flower-f,
+  .flower-intro-b,
+  .flower-intro-c,
+  .flower-nav-c {
+    display: none;
   }
 }
 

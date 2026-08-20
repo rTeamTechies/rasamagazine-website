@@ -77,8 +77,11 @@ h1 {
 }
 
 .saint-row .media-col img {
-  aspect-ratio: 1;
-  object-fit: cover;
+  aspect-ratio: auto;
+  height: auto;
+  max-height: min(520px, 72vh);
+  object-fit: contain;
+  object-position: center top;
   border: 1.5px solid rgba(255, 255, 255, 0.85);
 }
 

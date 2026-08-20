@@ -4,10 +4,11 @@ import { RouterLink } from '@angular/router';
 import { ContentService } from '../../services/content.service';
 import { MagazineIssue } from '../../data/models';
 import { HCarousel } from '../../shared/h-carousel/h-carousel';
+import { ArticleBack } from '../../shared/article-back/article-back';
 
 @Component({
   selector: 'app-magazine',
-  imports: [AsyncPipe, HCarousel, RouterLink],
+  imports: [AsyncPipe, HCarousel, RouterLink, ArticleBack],
   templateUrl: './magazine.html',
   styleUrl: './magazine.scss',
 })
