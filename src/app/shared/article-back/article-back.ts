@@ -37,7 +37,9 @@ export class ArticleBack implements AfterViewInit, OnDestroy {
         }
         this.cdr.markForCheck();
       },
-      { threshold: 0, rootMargin: '0px 0px -15% 0px' },
+      // Expand the top edge so the button appears as you approach the page end,
+      // and keep the bottom open so it still shows when you are fully scrolled down.
+      { threshold: 0, rootMargin: '120px 0px 0px 0px' },
     );
     this.observer.observe(el);
   }

@@ -25,17 +25,22 @@
 }
 
 .strip:hover .track,
-.strip:focus-within .track {
+.strip:focus-within .track,
+.strip.is-lightbox-open .track {
   animation-play-state: paused;
 }
 
 .frame {
   /* Spacing lives on the frame, not as a flex gap, so half the track is exactly one copy. */
+  appearance: none;
+  border: 0;
+  padding: 0;
   margin: 0 clamp(0.6rem, 1.2vw, 1.1rem) 0 0;
   flex: 0 0 auto;
   height: clamp(170px, 21vw, 260px);
   background: var(--warm-stone, #efe7dc);
   box-shadow: 0 10px 26px rgba(40, 20, 10, 0.18);
+  cursor: zoom-in;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 
   img {
@@ -43,6 +48,7 @@
     height: 100%;
     width: auto;
     object-fit: cover;
+    pointer-events: none;
     user-select: none;
   }
 
@@ -50,6 +56,67 @@
     transform: translateY(-6px) scale(1.02);
     box-shadow: 0 18px 38px rgba(40, 20, 10, 0.28);
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--burgundy, #800020);
+    outline-offset: 3px;
+  }
+}
+
+/* Lives under document.body (see gallery-strip.ts) so page sections cannot cover it. */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  background: rgba(20, 10, 8, 0.88);
+  backdrop-filter: blur(4px);
+  cursor: zoom-out;
+  animation: lightbox-fade 0.22s ease both;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: clamp(0.75rem, 2.5vw, 1.35rem);
+  right: clamp(0.75rem, 2.5vw, 1.35rem);
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1.5px solid color-mix(in srgb, #fff 55%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, #1a0f0c 55%, transparent);
+  color: #fff;
+  font-size: 1.85rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background: color-mix(in srgb, #1a0f0c 78%, transparent);
+    border-color: #fff;
+    transform: scale(1.05);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+  }
+}
+
+.lightbox-image {
+  display: block;
+  max-width: min(96vw, 1200px);
+  max-height: min(88vh, 900px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  cursor: default;
+  animation: lightbox-zoom 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes gallery-slide {
@@ -59,6 +126,26 @@
   to {
     /* Exactly one copy of the photos, so the second copy lands where the first began. */
     transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes lightbox-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lightbox-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
@@ -80,5 +167,10 @@
     &:hover {
       transform: none;
     }
+  }
+
+  .lightbox,
+  .lightbox-image {
+    animation: none;
   }
 }
