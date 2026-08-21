@@ -30,6 +30,24 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install PDF and image tools
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils webp
+
+      # Keeps already-rendered issues between deploys so only new ones are processed
+      - name: Restore rendered magazine pages
+        uses: actions/cache@v4
+        with:
+          path: public/assets/magazines/pages
+          key: magazine-pages-${{ hashFiles('public/content/magazines/index.json', 'scripts/render-magazine-pages.mjs') }}
+          restore-keys: |
+            magazine-pages-
+
+      - name: Sync magazine PDFs from Google Drive
+        run: npm run sync:magazines
+
+      - name: Render magazine flip-book pages
+        run: npm run render:magazines
+
       - name: Build production
         run: npm run build
 

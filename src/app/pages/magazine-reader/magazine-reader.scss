@@ -1,6 +1,9 @@
+@import '../../../../node_modules/page-flip/src/Style/stPageFlip.css';
+
 .reader {
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
   background: var(--charcoal);
   color: var(--ivory);
   display: flex;
@@ -49,26 +52,64 @@ h1 {
   min-height: 0;
   display: flex;
   flex-direction: column;
-  background: #1a1a1a;
+  position: relative;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255, 255, 255, 0.06), transparent 70%),
+    #151515;
 }
 
-.stage {
+.status-block.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  margin: 0;
+  display: grid;
+  place-content: center;
+  background: rgba(17, 17, 17, 0.82);
+}
+
+.flip-shell {
   flex: 1;
   min-height: 0;
   display: grid;
   place-items: center;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 0.75rem;
-  touch-action: pan-y;
+  padding: 0.75rem 0.5rem;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
 }
 
-.stage canvas {
-  display: block;
-  max-width: 100%;
-  height: auto;
+.flip-shell.is-ready {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+:host ::ng-deep .flip-book-host {
+  margin: 0 auto;
+}
+
+:host ::ng-deep .stf__parent {
+  margin: 0 auto;
+}
+
+:host ::ng-deep .sheet {
   background: #fff;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+:host ::ng-deep .sheet img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: fill;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+:host ::ng-deep .stf__item {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .pager {
@@ -77,7 +118,7 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+  padding: 0.75rem 1rem 0.35rem;
   background: color-mix(in srgb, #111 92%, var(--burgundy));
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -114,6 +155,26 @@ h1 {
   letter-spacing: 0.04em;
 }
 
+.prepare-hint {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0.35rem 1rem 0;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  opacity: 0.72;
+}
+
+.flip-hint {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0.35rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  opacity: 0.72;
+}
+
 .status,
 .status-block {
   margin: auto;
@@ -124,6 +185,12 @@ h1 {
 .status {
   font-size: 1rem;
   opacity: 0.9;
+}
+
+.status-hint {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  opacity: 0.65;
 }
 
 .download-fallback {
@@ -186,5 +253,19 @@ h1 {
   .pager-btn {
     min-width: 76px;
     padding: 0.55rem 0.75rem;
+  }
+
+  .flip-shell {
+    padding: 0.4rem 0.15rem;
+  }
+
+  .flip-hint {
+    font-size: 0.72rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :host ::ng-deep .stf__item {
+    transition: none !important;
   }
 }

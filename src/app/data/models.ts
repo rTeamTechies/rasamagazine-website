@@ -91,9 +91,13 @@ export interface MagazineIssue {
   month: string;
   year: number;
   cover: string;
-  /** Local PDF under public/ — preferred when set */
+  /** Local PDF under public/ — synced from Google Drive during deploy */
   pdfUrl?: string;
-  /** Fallback until PDF is uploaded */
+  /** Pre-rendered flip-book page images under public/ */
+  pagesBase?: string;
+  pageCount?: number;
+  pageExt?: string;
+  /** Public Google Drive link for full-quality download */
   driveUrl: string;
   published: boolean;
 }

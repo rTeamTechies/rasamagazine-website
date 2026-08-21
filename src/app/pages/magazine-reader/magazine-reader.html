@@ -4,62 +4,89 @@
       <p class="status">Loading magazine…</p>
     </div>
   } @else if (state.status === 'ready' && state.issue; as current) {
-    @if (current.pdfUrl) {
+    @if (hasSource(current)) {
       <div class="page reader" tabindex="0" (keydown)="onKeydown($event)">
         <header class="bar">
           <div class="bar-inner">
             <a class="back" routerLink="/magazine">← Magazines</a>
             <h1 class="display">{{ current.title }}</h1>
-            <a
-              class="download"
-              [href]="assetUrl(current.pdfUrl)"
-              download
-              target="_blank"
-              rel="noopener noreferrer"
-              >Download PDF</a
-            >
-          </div>
-        </header>
-
-        <div class="viewer">
-          @if (loading()) {
-            <p class="status">Loading magazine…</p>
-          } @else if (error()) {
-            <div class="status-block">
-              <p class="status">{{ error() }}</p>
+            @if (current.driveUrl) {
               <a
-                class="download-fallback"
-                [href]="assetUrl(current.pdfUrl)"
-                download
+                class="download"
+                [href]="current.driveUrl"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Download PDF</a
               >
+            } @else if (directDownloadUrl(current); as downloadHref) {
+              <a
+                class="download"
+                [href]="downloadHref"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Download PDF</a
+              >
+            } @else {
+              <a
+                class="download"
+                [href]="downloadUrl(current)"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open PDF</a
+              >
+            }
+          </div>
+        </header>
+
+        <div class="viewer">
+          @if (error()) {
+            <div class="status-block">
+              <p class="status">{{ error() }}</p>
+              @if (current.driveUrl) {
+                <a
+                  class="download-fallback"
+                  [href]="current.driveUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Open on Google Drive</a
+                >
+              }
             </div>
           } @else {
-            <div
-              class="stage"
-              #stage
-              (touchstart)="onTouchStart($event)"
-              (touchend)="onTouchEnd($event)"
-            >
-              <canvas #pageCanvas></canvas>
-            </div>
+            @if (loading()) {
+              <div class="status-block overlay">
+                <p class="status">{{ statusMessage() }}</p>
+                @if (pageCount() > 0) {
+                  <p class="status-hint">{{ pageCount() }} pages</p>
+                }
+              </div>
+            }
 
-            <div class="pager">
-              <button type="button" class="pager-btn" (click)="prev()" [disabled]="page() <= 1">
-                ‹ Prev
-              </button>
-              <span class="page-label">{{ page() }} / {{ pageCount() }}</span>
-              <button
-                type="button"
-                class="pager-btn"
-                (click)="next()"
-                [disabled]="page() >= pageCount()"
-              >
-                Next ›
-              </button>
-            </div>
+            <div
+              class="flip-shell"
+              #flipShell
+              aria-label="Magazine pages"
+              [class.is-ready]="flipReady()"
+            ></div>
+
+            @if (flipReady()) {
+              <div class="pager">
+                <button type="button" class="pager-btn" (click)="prev()" [disabled]="page() <= 1">
+                  ‹ Prev
+                </button>
+                <span class="page-label">{{ page() }} / {{ pageCount() }}</span>
+                <button
+                  type="button"
+                  class="pager-btn"
+                  (click)="next()"
+                  [disabled]="page() >= pageCount()"
+                >
+                  Next ›
+                </button>
+              </div>
+
+              <p class="flip-hint">Drag a page corner or tap the edges to flip like a book.</p>
+            }
           }
         </div>
       </div>
@@ -67,7 +94,7 @@
       <div class="page missing">
         <div class="wrap">
           <h1 class="display">PDF not available</h1>
-          <p>This issue does not have an uploaded PDF yet.</p>
+          <p>This issue does not have a readable PDF yet.</p>
           @if (current.driveUrl) {
             <a class="drive" [href]="current.driveUrl" target="_blank" rel="noopener noreferrer"
               >Open on Google Drive</a

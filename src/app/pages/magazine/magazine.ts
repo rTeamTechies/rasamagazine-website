@@ -18,6 +18,10 @@ export class Magazine {
   readonly issues$ = this.content.getMagazines();
 
   hasPdf(issue: MagazineIssue): boolean {
-    return !!issue.pdfUrl?.trim();
+    return (
+      (!!issue.pagesBase?.trim() && (issue.pageCount ?? 0) > 0) ||
+      !!issue.driveUrl?.trim() ||
+      !!issue.pdfUrl?.trim()
+    );
   }
 }

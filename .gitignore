@@ -41,5 +41,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Scraped Canva source (assets live in public/assets)
-/scraped-assets
+# Large magazine assets — synced/rendered from Google Drive during build/deploy
+/public/assets/magazines/pdfs/
+/public/assets/magazines/pages/
