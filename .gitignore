@@ -41,10 +41,11 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Magazine PDFs are synced from Google Drive during build/deploy (not committed)
-/public/assets/magazines/pdfs/
 # Flip-book page images are unused on this branch; ignore if present locally
 /public/assets/magazines/pages/
+
+# Magazine PDFs are committed here (must stay under GitHub's 100MB/file limit).
+# Do not replace them with full Drive originals or gh-pages deploy will fail.
 
 # Original gallery photos (HEIC, >100MB) — optimized copies in assets/images/gallery are committed
 /public/assets/images/Gallery_Homepage/

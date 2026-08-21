@@ -9,11 +9,12 @@ Last verified: 21 Aug 2026.
 
 1. `public/content/magazines/index.json` lists each issue with a Google Drive
    `driveUrl` and a local `pdfUrl` (`assets/magazines/pdfs/<id>.pdf`).
-2. On deploy, `scripts/sync-magazine-pdfs.mjs` downloads each PDF from Drive
-   (handles the large-file confirm interstitial).
-3. The Angular build **includes** those PDFs in the published site.
-4. `magazine-reader` loads the PDF with PDF.js and renders one page at a time
-   on a canvas (prev/next, keyboard, swipe).
+2. PDFs are **committed on this branch** (compressed copies under GitHub’s 100 MB
+   per-file limit). Deploy builds them into the site; PDF.js reads those URLs.
+3. `magazine-reader` renders one page at a time on a canvas (prev/next, keyboard, swipe).
+4. Optional: `npm run sync:magazines` can refresh from Drive, but only if a file
+   is missing — do **not** overwrite with full Drive originals if they exceed 100 MB,
+   or the `gh-pages` push will fail.
 
 Flip-book WebP rendering (`page-flip`, `render-magazine-pages.mjs`) is **not**
 used on this branch. That pipeline lives only on `main`.
@@ -53,10 +54,10 @@ Verify the Drive file matches the month label before shipping.
 
 ## Size note
 
-Drive originals are large (~500 MB for four issues). Shipping them in the site
-leaves less headroom under GitHub Pages’ 1 GB limit than the flip-book WebP
-pipeline. Prefer `main` for long-term growth; use this branch for client demos
-of the non-flip experience.
+GitHub rejects single files over **100 MB** on push (including `gh-pages`). The
+full Drive PDFs are larger than that, so this branch ships the smaller editorial
+PDF copies (about 112 MB total). Prefer `main` (flip-book / WebP) for long-term
+growth; use this branch for client demos of the non-flip PDF.js experience.
 
 ## Local commands
 
