@@ -1,5 +1,5 @@
 import { execFile } from 'node:child_process';
-import { mkdir, readdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
+import { mkdir, open, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
@@ -69,6 +69,22 @@ async function isCached(issue, outDir) {
   return (await countPages(outDir)) === marker.pageCount;
 }
 
+async function assertPdf(pdfPath, issueId) {
+  const handle = await open(pdfPath, 'r').catch(() => null);
+  if (!handle) {
+    throw new Error(`Missing PDF for ${issueId} at ${pdfPath}. Run npm run sync:magazines first.`);
+  }
+
+  try {
+    const { buffer, bytesRead } = await handle.read(Buffer.alloc(4), 0, 4, 0);
+    if (buffer.subarray(0, bytesRead).toString('latin1') !== '%PDF') {
+      throw new Error(`${pdfPath} is not a PDF (Drive download likely returned an HTML page).`);
+    }
+  } finally {
+    await handle.close();
+  }
+}
+
 async function convertAll(outDir, jpegNames) {
   let cursor = 0;
 
@@ -101,6 +117,7 @@ async function renderIssue(issue) {
   }
 
   const pdfPath = path.join(rootDir, 'public/assets/magazines/pdfs', `${issue.id}.pdf`);
+  await assertPdf(pdfPath, issue.id);
   await rm(outDir, { recursive: true, force: true });
   await mkdir(outDir, { recursive: true });
 
