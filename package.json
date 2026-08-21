@@ -5,9 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:pages": "npm run sync:magazines && npm run render:magazines && ng build && cp dist/rasamagazine-website/browser/index.html dist/rasamagazine-website/browser/404.html && echo rasamagazine.com > dist/rasamagazine-website/browser/CNAME",
+    "build:pages": "npm run sync:magazines && ng build && cp dist/rasamagazine-website/browser/index.html dist/rasamagazine-website/browser/404.html && echo rasamagazine.com > dist/rasamagazine-website/browser/CNAME",
     "sync:magazines": "node scripts/sync-magazine-pdfs.mjs",
-    "render:magazines": "node scripts/render-magazine-pages.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -29,7 +28,6 @@
     "@angular/forms": "^20.1.0",
     "@angular/platform-browser": "^20.1.0",
     "@angular/router": "^20.1.0",
-    "page-flip": "^2.0.7",
     "pdfjs-dist": "^4.10.38",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

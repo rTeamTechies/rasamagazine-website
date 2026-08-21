@@ -9,7 +9,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
 const indexPath = path.join(rootDir, 'public/content/magazines/index.json');
 const pdfDir = path.join(rootDir, 'public/assets/magazines/pdfs');
-const pagesRoot = path.join(rootDir, 'public/assets/magazines/pages');
 
 const DRIVE_ENDPOINT = 'https://drive.usercontent.google.com/download';
 const PDF_MAGIC = '%PDF';
@@ -18,16 +17,11 @@ function driveFileId(driveUrl = '') {
   return driveUrl.match(/\/file\/d\/([^/?#]+)/i)?.[1] ?? null;
 }
 
-/**
- * Pages already rendered for this exact Drive file mean the PDF is only needed
- * as a render input, so the download can be skipped entirely.
- */
-async function alreadyRendered(issue, fileId) {
+/** Skip re-download when a valid PDF is already on disk (local cache / warm CI). */
+async function alreadyHavePdf(destination) {
   try {
-    const marker = JSON.parse(
-      await readFile(path.join(pagesRoot, issue.id, 'rendered.json'), 'utf8'),
-    );
-    return marker.fileId === fileId && marker.pageCount > 0;
+    await assertPdf(destination, 'cached');
+    return true;
   } catch {
     return false;
   }
@@ -117,13 +111,15 @@ async function main() {
       continue;
     }
 
-    if (await alreadyRendered(issue, fileId)) {
-      console.log(`Skipping download for ${issue.title} (pages already rendered)`);
+    const destination = path.join(pdfDir, `${issue.id}.pdf`);
+    if (await alreadyHavePdf(destination)) {
+      const bytes = (await stat(destination)).size;
+      console.log(`Skipping download for ${issue.title} (PDF already on disk, ${(bytes / (1024 * 1024)).toFixed(1)} MB)`);
       continue;
     }
 
     process.stdout.write(`Downloading ${issue.title}… `);
-    const bytes = await downloadPdf(fileId, path.join(pdfDir, `${issue.id}.pdf`));
+    const bytes = await downloadPdf(fileId, destination);
     console.log(`${(bytes / (1024 * 1024)).toFixed(1)} MB`);
   }
 

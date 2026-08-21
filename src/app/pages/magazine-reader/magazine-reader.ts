@@ -9,15 +9,20 @@ import {
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { PageFlip } from 'page-flip/dist/js/page-flip.module.js';
+import {
+  GlobalWorkerOptions,
+  getDocument,
+  type PDFDocumentProxy,
+} from 'pdfjs-dist';
 import { map, startWith, switchMap } from 'rxjs';
 import type { MagazineIssue } from '../../data/models';
 import { ContentService } from '../../services/content.service';
-import { driveDirectDownloadUrl, resolveAssetUrl } from '../../utils/drive-pdf';
 
-/** Below this host width the library switches to single-page portrait mode. */
-const PORTRAIT_BREAKPOINT = 640;
-const PRELOAD_RADIUS = 4;
+GlobalWorkerOptions.workerSrc = `${document.baseURI.replace(/\/$/, '')}/assets/pdfjs/pdf.worker.min.mjs`;
+
+type IssueState =
+  | { status: 'loading' }
+  | { status: 'ready'; issue: MagazineIssue | undefined };
 
 @Component({
   selector: 'app-magazine-reader',
@@ -29,93 +34,70 @@ export class MagazineReader implements OnDestroy {
   private readonly route = inject(ActivatedRoute);
   private readonly content = inject(ContentService);
 
-  private readonly flipShellRef = viewChild<ElementRef<HTMLElement>>('flipShell');
+  private readonly canvasRef = viewChild<ElementRef<HTMLCanvasElement>>('pageCanvas');
+  private readonly stageRef = viewChild<ElementRef<HTMLElement>>('stage');
 
-  private pageFlip: PageFlip | null = null;
-  private host: HTMLElement | null = null;
-  private pageUrls: string[] = [];
-  private pageAspect = 595 / 842;
+  private pdf: PDFDocumentProxy | null = null;
+  private renderTask: { cancel: () => void } | null = null;
   private resizeObserver: ResizeObserver | null = null;
-  private loadedIssueId: string | null = null;
-  private loadToken = 0;
+  private touchStartX = 0;
+  private loadedUrl: string | null = null;
 
   readonly issueState = toSignal(
     this.route.paramMap.pipe(
       map((p) => p.get('id') ?? ''),
       switchMap((id) =>
         this.content.getMagazine(id).pipe(
-          map((issue): { status: 'ready'; issue: MagazineIssue | undefined } => ({
-            status: 'ready',
-            issue,
-          })),
+          map((issue): IssueState => ({ status: 'ready', issue })),
         ),
       ),
-      startWith({ status: 'loading' } as const),
+      startWith({ status: 'loading' } as IssueState),
     ),
-    { initialValue: { status: 'loading' } as const },
+    { initialValue: { status: 'loading' } as IssueState },
   );
 
   readonly page = signal(1);
   readonly pageCount = signal(0);
   readonly loading = signal(true);
-  readonly statusMessage = signal('Opening magazine…');
-  readonly flipReady = signal(false);
   readonly error = signal<string | null>(null);
 
   constructor() {
     effect(() => {
       const state = this.issueState();
-      const shell = this.flipShellRef();
-      if (state.status !== 'ready' || !state.issue || !shell) {
+      if (state.status !== 'ready' || !state.issue?.pdfUrl) {
+        if (state.status === 'ready' && !state.issue?.pdfUrl) {
+          this.loading.set(false);
+        }
         return;
       }
+      void this.loadPdf(state.issue.pdfUrl);
+    });
 
-      if (!this.hasSource(state.issue)) {
-        this.loading.set(false);
-        this.flipReady.set(false);
+    effect(() => {
+      const page = this.page();
+      const count = this.pageCount();
+      const canvas = this.canvasRef();
+      const stage = this.stageRef();
+      if (!canvas || !stage || !this.pdf || count < 1) {
         return;
       }
-
-      void this.loadIssue(state.issue);
+      void this.renderPage(page);
     });
   }
 
   ngOnDestroy(): void {
-    this.loadToken += 1;
+    this.renderTask?.cancel();
     this.resizeObserver?.disconnect();
-    this.destroyFlipBook();
-  }
-
-  hasSource(issue: MagazineIssue): boolean {
-    return !!issue.pagesBase?.trim() && (issue.pageCount ?? 0) > 0;
-  }
-
-  downloadUrl(issue: MagazineIssue): string {
-    if (issue.driveUrl?.trim()) {
-      return issue.driveUrl.trim();
-    }
-    if (issue.pdfUrl?.trim()) {
-      return resolveAssetUrl(issue.pdfUrl);
-    }
-    return '#';
-  }
-
-  directDownloadUrl(issue: MagazineIssue): string | null {
-    if (issue.driveUrl?.trim()) {
-      return driveDirectDownloadUrl(issue.driveUrl);
-    }
-    if (issue.pdfUrl?.trim()) {
-      return resolveAssetUrl(issue.pdfUrl);
-    }
-    return null;
+    void this.pdf?.destroy();
+    this.pdf = null;
   }
 
   prev(): void {
-    this.pageFlip?.flipPrev();
+    this.page.update((p) => Math.max(1, p - 1));
   }
 
   next(): void {
-    this.pageFlip?.flipNext();
+    this.page.update((p) => Math.min(this.pageCount(), p + 1));
   }
 
   onKeydown(event: KeyboardEvent): void {
@@ -128,205 +110,130 @@ export class MagazineReader implements OnDestroy {
     }
   }
 
-  private async loadIssue(issue: MagazineIssue): Promise<void> {
-    const token = ++this.loadToken;
+  onTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.changedTouches[0]?.clientX ?? 0;
+  }
 
-    if (this.loadedIssueId === issue.id && this.pageFlip) {
+  onTouchEnd(event: TouchEvent): void {
+    const endX = event.changedTouches[0]?.clientX ?? 0;
+    const delta = endX - this.touchStartX;
+    if (Math.abs(delta) < 56) {
+      return;
+    }
+    if (delta < 0) {
+      this.next();
+    } else {
+      this.prev();
+    }
+  }
+
+  assetUrl(path: string): string {
+    return this.resolveAssetUrl(path);
+  }
+
+  private resolveAssetUrl(path: string): string {
+    if (/^https?:\/\//i.test(path)) {
+      return path;
+    }
+    const normalized = path.startsWith('/') ? path : `/${path}`;
+    return new URL(normalized, document.baseURI).href;
+  }
+
+  private async loadPdf(pdfUrl: string): Promise<void> {
+    const absoluteUrl = this.resolveAssetUrl(pdfUrl);
+    if (this.loadedUrl === absoluteUrl && this.pdf) {
       return;
     }
 
     this.loading.set(true);
-    this.flipReady.set(false);
     this.error.set(null);
     this.page.set(1);
-    this.pageCount.set(issue.pageCount ?? 0);
-    this.statusMessage.set('Opening magazine…');
-
-    this.destroyFlipBook();
-    this.loadedIssueId = null;
+    this.pageCount.set(0);
+    this.renderTask?.cancel();
+    await this.pdf?.destroy();
+    this.pdf = null;
+    this.loadedUrl = null;
 
     try {
-      this.pageUrls = this.buildPageImages(issue);
-      if (this.pageUrls.length === 0) {
-        throw new Error('No rendered pages found for this issue');
+      const response = await fetch(absoluteUrl);
+      if (!response.ok) {
+        throw new Error(`PDF fetch failed (${response.status})`);
       }
 
-      const cover = await this.loadImage(this.pageUrls[0]);
-      if (token !== this.loadToken) {
-        return;
-      }
-
-      if (cover.naturalWidth > 0 && cover.naturalHeight > 0) {
-        this.pageAspect = cover.naturalWidth / cover.naturalHeight;
-      }
-
-      this.initFlipBook();
-      this.loadedIssueId = issue.id;
-      this.pageCount.set(this.pageUrls.length);
+      const data = await response.arrayBuffer();
+      const loadingTask = getDocument({
+        data,
+        withCredentials: false,
+      });
+      this.pdf = await loadingTask.promise;
+      this.loadedUrl = absoluteUrl;
+      this.pageCount.set(this.pdf.numPages);
       this.loading.set(false);
-      this.flipReady.set(true);
-      this.statusMessage.set('');
+      this.observeStage();
     } catch (err) {
       console.error(err);
-      if (token !== this.loadToken) {
-        return;
-      }
       this.loading.set(false);
-      this.flipReady.set(false);
-      this.error.set('Could not open this issue. Try the Google Drive link instead.');
+      this.error.set('Could not load this PDF. Try Download PDF instead.');
     }
   }
 
-  private buildPageImages(issue: MagazineIssue): string[] {
-    const base = issue.pagesBase?.replace(/\/$/, '');
-    const count = issue.pageCount ?? 0;
-    if (!base || count < 1) {
-      return [];
-    }
-
-    const ext = issue.pageExt?.replace(/^\./, '') || 'jpg';
-
-    return Array.from({ length: count }, (_, index) =>
-      resolveAssetUrl(`${base}/${String(index + 1).padStart(3, '0')}.${ext}`),
-    );
-  }
-
-  private loadImage(src: string): Promise<HTMLImageElement> {
-    return new Promise((resolve, reject) => {
-      const image = new Image();
-      image.onload = () => resolve(image);
-      image.onerror = () => reject(new Error(`Failed to load ${src}`));
-      image.src = src;
-    });
-  }
-
-  /**
-   * HTML mode is used instead of canvas mode so each page stays a real <img>.
-   * The library's canvas renderer sizes its bitmap in CSS pixels, which makes
-   * pages blurry on high-density screens.
-   */
-  private buildSheets(): HTMLElement[] {
-    return this.pageUrls.map((url, index) => {
-      const sheet = document.createElement('div');
-      sheet.className = 'sheet';
-      if (index === 0 || index === this.pageUrls.length - 1) {
-        sheet.dataset['density'] = 'hard';
-      }
-
-      const image = document.createElement('img');
-      image.src = url;
-      image.alt = `Page ${index + 1}`;
-      image.draggable = false;
-      image.decoding = 'async';
-      image.loading = index < 2 ? 'eager' : 'lazy';
-
-      sheet.appendChild(image);
-      return sheet;
-    });
-  }
-
-  private initFlipBook(): void {
-    const shell = this.flipShellRef()?.nativeElement;
-    if (!shell || this.pageUrls.length === 0) {
-      return;
-    }
-
-    shell.innerHTML = '';
-    this.host = document.createElement('div');
-    this.host.className = 'flip-book-host';
-    shell.appendChild(this.host);
-
-    this.applyHostSize();
-
-    const pageHeight = 1000;
-    const pageWidth = Math.round(pageHeight * this.pageAspect);
-
-    this.pageFlip = new PageFlip(this.host, {
-      width: pageWidth,
-      height: pageHeight,
-      size: 'stretch',
-      minWidth: PORTRAIT_BREAKPOINT / 2,
-      maxWidth: 1400,
-      minHeight: 300,
-      maxHeight: 2000,
-      showCover: true,
-      usePortrait: true,
-      drawShadow: true,
-      maxShadowOpacity: 0.4,
-      mobileScrollSupport: false,
-      showPageCorners: true,
-      flippingTime: 800,
-    });
-
-    this.pageFlip.loadFromHTML(this.buildSheets());
-    this.pageFlip.on('flip', (event) => {
-      this.page.set(event.data + 1);
-      this.preloadAround(event.data);
-    });
-
-    this.page.set(1);
-    this.preloadAround(0);
-    this.observeFlipShell();
-  }
-
-  /** Warms the cache around the current spread so flips are not blank. */
-  private preloadAround(pageIndex: number): void {
-    const start = Math.max(0, pageIndex - PRELOAD_RADIUS);
-    const end = Math.min(this.pageUrls.length - 1, pageIndex + PRELOAD_RADIUS);
-
-    for (let index = start; index <= end; index += 1) {
-      const image = new Image();
-      image.src = this.pageUrls[index];
-    }
-  }
-
-  /**
-   * The book height is derived from its width by the page ratio, so the width
-   * has to be capped to keep the whole spread inside the viewport.
-   */
-  private applyHostSize(): void {
-    const shell = this.flipShellRef()?.nativeElement;
-    if (!shell || !this.host) {
-      return;
-    }
-
-    const availableWidth = Math.max(shell.clientWidth - 16, 240);
-    const availableHeight = Math.max(shell.clientHeight - 16, 320);
-
-    const widthForPortrait = availableHeight * this.pageAspect;
-    const widthForSpread = widthForPortrait * 2;
-
-    let width = Math.min(availableWidth, widthForSpread);
-    if (width < PORTRAIT_BREAKPOINT) {
-      width = Math.min(availableWidth, widthForPortrait);
-    }
-
-    this.host.style.width = `${Math.floor(width)}px`;
-  }
-
-  private observeFlipShell(): void {
+  private observeStage(): void {
     this.resizeObserver?.disconnect();
     queueMicrotask(() => {
-      const shell = this.flipShellRef()?.nativeElement;
-      if (!shell) {
+      const stage = this.stageRef()?.nativeElement;
+      if (!stage) {
         return;
       }
-
       this.resizeObserver = new ResizeObserver(() => {
-        this.applyHostSize();
-        this.pageFlip?.update();
+        void this.renderPage(this.page());
       });
-      this.resizeObserver.observe(shell);
+      this.resizeObserver.observe(stage);
+      void this.renderPage(this.page());
     });
   }
 
-  private destroyFlipBook(): void {
-    this.pageFlip?.destroy();
-    this.pageFlip = null;
-    this.host = null;
-    const shell = this.flipShellRef()?.nativeElement;
-    if (shell) {
-      shell.innerHTML = '';
+  private async renderPage(pageNumber: number): Promise<void> {
+    const pdf = this.pdf;
+    const canvas = this.canvasRef()?.nativeElement;
+    const stage = this.stageRef()?.nativeElement;
+    if (!pdf || !canvas || !stage || pageNumber < 1 || pageNumber > pdf.numPages) {
+      return;
+    }
+
+    this.renderTask?.cancel();
+
+    try {
+      const page = await pdf.getPage(pageNumber);
+      const baseViewport = page.getViewport({ scale: 1 });
+      const maxWidth = Math.max(stage.clientWidth - 24, 280);
+      const maxHeight = Math.max(stage.clientHeight - 24, 320);
+      const fitScale = Math.min(
+        maxWidth / baseViewport.width,
+        maxHeight / baseViewport.height,
+      );
+      const outputScale = window.devicePixelRatio || 1;
+      const viewport = page.getViewport({ scale: Math.max(fitScale, 0.45) * outputScale });
+
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      canvas.style.width = `${viewport.width / outputScale}px`;
+      canvas.style.height = `${viewport.height / outputScale}px`;
+
+      const context = canvas.getContext('2d');
+      if (!context) {
+        return;
+      }
+
+      const task = page.render({
+        canvasContext: context,
+        viewport,
+      });
+      this.renderTask = task;
+      await task.promise;
+    } catch (err) {
+      if ((err as { name?: string })?.name !== 'RenderingCancelledException') {
+        console.error(err);
+      }
     }
   }
 }

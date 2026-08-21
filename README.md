@@ -24,11 +24,12 @@ See **[CONTENT.md](./CONTENT.md)** for how to add magazines, articles, and video
 Content files: `public/content/`  
 Images: `public/assets/images/`
 
-## Magazine flip-book
+## Magazine reader (this branch)
 
-Issues live as PDFs in the client's Google Drive. The deploy downloads them and
-renders every page to WebP for the flip-book reader — no PDFs are committed or
-published.
+Branch **`main-without-flip`**: PDF.js page viewer. Issues are synced from Google
+Drive at deploy time and shipped as PDFs for the in-page reader.
 
-See **[docs/magazines.md](./docs/magazines.md)** for the pipeline, rendering
-settings, capacity limits, and troubleshooting.
+Branch **`main`**: flip-book (WebP + page-flip). Pushing either branch can publish
+rasamagazine.com (last push wins).
+
+See **[docs/magazines.md](./docs/magazines.md)**.

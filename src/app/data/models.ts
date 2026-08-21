@@ -89,10 +89,6 @@ export interface MagazineIssue {
   cover: string;
   /** Local PDF under public/ — synced from Google Drive during deploy */
   pdfUrl?: string;
-  /** Pre-rendered flip-book page images under public/ */
-  pagesBase?: string;
-  pageCount?: number;
-  pageExt?: string;
   /** Public Google Drive link for full-quality download */
   driveUrl: string;
   published: boolean;

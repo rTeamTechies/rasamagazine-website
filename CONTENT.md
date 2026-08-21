@@ -29,18 +29,18 @@ src/app/pages/
 
 ## Add a new magazine issue
 
-Issues are read in a flip-book viewer. The PDF itself stays in Google Drive — the
-deploy downloads it and renders every page to an image, so you never commit a PDF.
+Issues are read with the in-page PDF.js viewer on this branch. The PDF stays in
+Google Drive as the source of truth; deploy syncs a copy into the site build.
 
 1. Drop the cover image into `public/assets/images/magazines/`
 2. Get the Drive share link from the client, set to **"Anyone with the link"**
-3. Append an entry to `public/content/magazines/index.json` with `driveUrl`
-   (leave out `pagesBase` / `pageCount` — the deploy fills those in)
+3. Append an entry to `public/content/magazines/index.json` with both `driveUrl`
+   and `pdfUrl` (`assets/magazines/pdfs/<id>.pdf`)
 4. Optional: update home MAGAZINE nav thumb in `site.json`
 
 Check the link opens the issue you labelled it as — the June and July 2026 links
 arrived swapped. See **[docs/magazines.md](./docs/magazines.md)** for the full
-pipeline, capacity limits, and troubleshooting.
+pipeline and how this branch differs from flip-book `main`.
 
 ## Add a new article
 

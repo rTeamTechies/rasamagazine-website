@@ -6,11 +6,9 @@
     "month": "April",
     "year": 2026,
     "cover": "assets/images/magazines/vol-1-april-2026.jpg",
+    "pdfUrl": "assets/magazines/pdfs/vol-1-april-2026.pdf",
     "driveUrl": "https://drive.google.com/file/d/1T7PK8R3x74AQMEKr5cNiEDQKWmy_zkxk/view?usp=sharing",
-    "published": true,
-    "pagesBase": "assets/magazines/pages/vol-1-april-2026",
-    "pageCount": 114,
-    "pageExt": "webp"
+    "published": true
   },
   {
     "id": "vol-2-may-2026",
@@ -19,11 +17,9 @@
     "month": "May",
     "year": 2026,
     "cover": "assets/images/magazines/vol-2-may-2026.jpg",
+    "pdfUrl": "assets/magazines/pdfs/vol-2-may-2026.pdf",
     "driveUrl": "https://drive.google.com/file/d/1Biv4gpjVCTULeX5MUenwrki-Y1SSjHmv/view?usp=sharing",
-    "published": true,
-    "pagesBase": "assets/magazines/pages/vol-2-may-2026",
-    "pageCount": 168,
-    "pageExt": "webp"
+    "published": true
   },
   {
     "id": "vol-3-june-2026",
@@ -32,11 +28,9 @@
     "month": "June",
     "year": 2026,
     "cover": "assets/images/magazines/vol-3-june-2026.jpg",
+    "pdfUrl": "assets/magazines/pdfs/vol-3-june-2026.pdf",
     "driveUrl": "https://drive.google.com/file/d/1VRp8uOQ877GMbvZlqFQLeKicAm1qG8fm/view?usp=drive_link",
-    "published": true,
-    "pagesBase": "assets/magazines/pages/vol-3-june-2026",
-    "pageCount": 192,
-    "pageExt": "webp"
+    "published": true
   },
   {
     "id": "vol-4-july-2026",
@@ -45,10 +39,8 @@
     "month": "July",
     "year": 2026,
     "cover": "assets/images/magazines/vol-4-july-2026.png",
+    "pdfUrl": "assets/magazines/pdfs/vol-4-july-2026.pdf",
     "driveUrl": "https://drive.google.com/file/d/1z1a8kD04P3GXVlg0cWFIgIZiMkne8-b2/view?usp=drive_link",
-    "published": true,
-    "pagesBase": "assets/magazines/pages/vol-4-july-2026",
-    "pageCount": 214,
-    "pageExt": "webp"
+    "published": true
   }
 ]
