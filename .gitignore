@@ -44,3 +44,6 @@ Thumbs.db
 # Large magazine assets — synced/rendered from Google Drive during build/deploy
 /public/assets/magazines/pdfs/
 /public/assets/magazines/pages/
+
+# Original gallery photos (HEIC, >100MB) — optimized copies in assets/images/gallery are committed
+/public/assets/images/Gallery_Homepage/

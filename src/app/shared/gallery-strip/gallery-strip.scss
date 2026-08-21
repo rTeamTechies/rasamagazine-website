@@ -1,0 +1,84 @@
+:host {
+  display: block;
+}
+
+.strip {
+  position: relative;
+  overflow: hidden;
+  padding: 0.9rem 0;
+
+  /* Feathers both ends so photos drift in and out instead of being cut off. */
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 clamp(2rem, 7vw, 7rem),
+    #000 calc(100% - clamp(2rem, 7vw, 7rem)),
+    transparent
+  );
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: gallery-slide var(--gallery-duration, 120s) linear infinite;
+}
+
+.strip:hover .track,
+.strip:focus-within .track {
+  animation-play-state: paused;
+}
+
+.frame {
+  /* Spacing lives on the frame, not as a flex gap, so half the track is exactly one copy. */
+  margin: 0 clamp(0.6rem, 1.2vw, 1.1rem) 0 0;
+  flex: 0 0 auto;
+  height: clamp(170px, 21vw, 260px);
+  background: var(--warm-stone, #efe7dc);
+  box-shadow: 0 10px 26px rgba(40, 20, 10, 0.18);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+  img {
+    display: block;
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    user-select: none;
+  }
+
+  &:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 18px 38px rgba(40, 20, 10, 0.28);
+  }
+}
+
+@keyframes gallery-slide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    /* Exactly one copy of the photos, so the second copy lands where the first began. */
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strip {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .track {
+    animation: none;
+  }
+
+  .frame {
+    scroll-snap-align: center;
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
