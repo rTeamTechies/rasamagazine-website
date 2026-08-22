@@ -1,0 +1,101 @@
+{
+  "siteName": "RASA Magazine",
+  "tagline": "WHERE ART MEETS CULTURE",
+  "editor": "Anjaneya Mulekar",
+  "links": {
+    "youtube": "https://www.youtube.com/@artsyanju",
+    "instagramRasa": "https://www.instagram.com/rasabyartsyanju",
+    "instagramPersonal": "https://www.instagram.com/artsyanju",
+    "email": "mailto:editor@rasamgazine.com",
+    "emailLabel": "editor@rasamgazine.com",
+    "phone": "tel:+918452062193",
+    "phoneLabel": "+91 8452062193",
+    "cv": "https://drive.google.com/drive/folders/12duOf2WgYW3dLqUKILwtXD0x4Xb_Ze0j?usp=drive_link"
+  },
+  "brand": {
+    "rasaLogo": "assets/images/brand/rasa-logo.png",
+    "artsyLogo": "assets/images/brand/artsy-anju.png",
+    "youtubeIcon": "assets/images/brand/youtube.png",
+    "instagramIcon": "assets/images/brand/instagram.png",
+    "aboutPortrait": "assets/images/articles/nav-about.png"
+  },
+  "home": {
+    "heroLead": "A digital magazine exploring classical arts, cinema, fashion, food, heritage and the creative voices shaping culture today.",
+    "introParagraphs": [
+      "Rasa is a digital magazine dedicated to the arts, culture, heritage, and the stories that shape our world. From classical performances and emerging artists to cinema, fashion, food, heritage and contemporary cultural conversations, Rasa brings together diverse forms of creative expression under one platform.",
+      "We believe culture is not something distant or confined to tradition, it is living, evolving, and meant to be experienced by everyone. Through thoughtful writing, interviews, reviews and visual storytelling, Rasa explores culture with a fresh, contemporary perspective while celebrating the richness of where we come from.",
+      "Rasa is a space to discover, experience, and engage with culture."
+    ],
+    "gallery": [
+      "assets/images/gallery/img_1304.webp",
+      "assets/images/gallery/img_1456.webp",
+      "assets/images/gallery/img_2010.webp",
+      "assets/images/gallery/img_2483.webp",
+      "assets/images/gallery/img_2485.webp",
+      "assets/images/gallery/img_2490.webp",
+      "assets/images/gallery/img_2491.webp",
+      "assets/images/gallery/img_2748.webp",
+      "assets/images/gallery/img_2769.webp",
+      "assets/images/gallery/img_2770.webp",
+      "assets/images/gallery/img_2771.webp",
+      "assets/images/gallery/img_2772.webp",
+      "assets/images/gallery/img_2773.webp",
+      "assets/images/gallery/img_2774.webp",
+      "assets/images/gallery/img_2775.webp",
+      "assets/images/gallery/img_2776.webp",
+      "assets/images/gallery/img_2777.webp",
+      "assets/images/gallery/img_2778.webp",
+      "assets/images/gallery/img_2779.webp",
+      "assets/images/gallery/img_2780.webp",
+      "assets/images/gallery/img_2781.webp",
+      "assets/images/gallery/img_2782.webp",
+      "assets/images/gallery/img_2800.webp",
+      "assets/images/gallery/img_2801.webp",
+      "assets/images/gallery/img_2802.webp",
+      "assets/images/gallery/img_2803.webp",
+      "assets/images/gallery/img_2804.webp",
+      "assets/images/gallery/img_2805.webp",
+      "assets/images/gallery/img_2806.webp",
+      "assets/images/gallery/img_5051.webp",
+      "assets/images/gallery/img_5181.webp",
+      "assets/images/gallery/img_5706.webp",
+      "assets/images/gallery/img_5759.webp",
+      "assets/images/gallery/img_5762.webp",
+      "assets/images/gallery/img_5767.webp",
+      "assets/images/gallery/img_5787.webp",
+      "assets/images/gallery/img_5793.webp",
+      "assets/images/gallery/img_5839.webp",
+      "assets/images/gallery/img_5847.webp",
+      "assets/images/gallery/img_6251.webp",
+      "assets/images/gallery/img_6257.webp",
+      "assets/images/gallery/img_6285.webp",
+      "assets/images/gallery/img_7140.webp",
+      "assets/images/gallery/img_9727.webp"
+    ],
+    "nav": [
+      {
+        "label": "MAGAZINE",
+        "path": "/magazine",
+        "image": "assets/images/magazines/vol-4-july-2026.png"
+      },
+      {
+        "label": "ARTICLES",
+        "path": "/articles",
+        "image": "assets/images/articles/nav-articles.png"
+      },
+      {
+        "label": "VIDEOS",
+        "path": "/videos",
+        "image": "assets/images/articles/nav-videos.jpg"
+      },
+      {
+        "label": "ABOUT ME",
+        "path": "/about-me",
+        "image": "assets/images/articles/nav-about.png"
+      }
+    ],
+    "partnershipLinkLabel": "PARTNERSHIP & CONTACT",
+    "partnershipHeroLabel": "Partnership & Collaboration",
+    "partnershipLinkPath": "/partnership-contact"
+  }
+}
