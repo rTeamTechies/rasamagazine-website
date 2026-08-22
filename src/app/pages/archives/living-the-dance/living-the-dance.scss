@@ -51,18 +51,11 @@ h1 {
   width: 100%;
   display: block;
   border: 2px solid var(--charcoal);
-  background: #000;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: center center;
-}
-
-.hero-media img,
-.portrait-media img {
   aspect-ratio: auto;
   height: auto;
   object-fit: contain;
-  object-position: center top;
+  object-position: center;
+  background: #000;
 }
 
 .credit {
