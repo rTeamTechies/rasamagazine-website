@@ -22,25 +22,47 @@ h1 {
 }
 
 .lead-block {
+  display: grid;
+  grid-template-columns: min(200px, 32%) 1fr;
+  column-gap: 1.25rem;
+  row-gap: 0;
   margin-bottom: 1.75rem;
-  overflow: hidden;
 }
 
-.lead-image {
-  float: left;
-  width: min(38%, 300px);
-  margin: 0 1.5rem 0.85rem 0;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  object-position: center top;
-  border: 2px solid var(--charcoal);
-  display: block;
-  background: #fff;
+.side-portrait {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  margin: 0;
+
+  img {
+    width: 100%;
+    display: block;
+    border: 2px solid var(--charcoal);
+    background: #fff;
+  }
+
+  .credit {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+}
+
+.lead-intro {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  margin: 0;
+}
+
+.lead-rest {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin: 1.15rem 0 0;
 }
 
 .lead-block p,
 .prose p {
-  margin: 0 0 1.15rem;
   font-family: var(--font-body);
   font-size: 1.5rem;
   line-height: 1.68;
@@ -49,13 +71,17 @@ h1 {
   hyphens: auto;
 }
 
-.lead-block p:last-child,
+.lead-rest:last-child,
 .prose p:last-child {
   margin-bottom: 0;
 }
 
 .prose {
   margin-bottom: 1.75rem;
+}
+
+.prose p {
+  margin: 0 0 1.15rem;
 }
 
 .full-media {
@@ -66,36 +92,46 @@ h1 {
   width: 100%;
   display: block;
   border: 2px solid var(--charcoal);
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
   background: #000;
 }
 
-.dual-media {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.85rem;
-  margin: 0 0 1.75rem;
-
-  img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    object-position: center top;
-    border: 2px solid var(--charcoal);
-    display: block;
-  }
+.credit {
+  display: block;
+  margin-top: 0.45rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-style: italic;
+  text-align: center;
+  color: var(--ivory);
+  opacity: 0.9;
 }
 
 @media (max-width: 760px) {
-  .dual-media {
+  .lead-block {
     grid-template-columns: 1fr;
+    row-gap: 1.15rem;
   }
 
-  .lead-image {
-    float: none;
-    width: min(280px, 70%);
-    margin: 0 auto 1.15rem;
+  .side-portrait {
+    grid-column: 1;
+    grid-row: 1;
+    width: min(240px, 72%);
+    margin: 0 auto;
+  }
+
+  .lead-intro {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .lead-rest {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 0;
   }
 
   h1 {
