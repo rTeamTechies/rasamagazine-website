@@ -39,8 +39,6 @@ jobs:
         with:
           path: public/assets/magazines/pages
           key: magazine-pages-${{ hashFiles('public/content/magazines/index.json', 'scripts/render-magazine-pages.mjs') }}
-          restore-keys: |
-            magazine-pages-
 
       - name: Sync magazine PDFs from Google Drive
         run: npm run sync:magazines

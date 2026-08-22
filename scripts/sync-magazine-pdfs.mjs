@@ -11,6 +11,9 @@ const indexPath = path.join(rootDir, 'public/content/magazines/index.json');
 const pdfDir = path.join(rootDir, 'public/assets/magazines/pdfs');
 const pagesRoot = path.join(rootDir, 'public/assets/magazines/pages');
 
+/** Keep in sync with scripts/render-magazine-pages.mjs */
+const RENDER_VERSION = 2;
+
 const DRIVE_ENDPOINT = 'https://drive.usercontent.google.com/download';
 const PDF_MAGIC = '%PDF';
 
@@ -19,15 +22,27 @@ function driveFileId(driveUrl = '') {
 }
 
 /**
- * Pages already rendered for this exact Drive file mean the PDF is only needed
- * as a render input, so the download can be skipped entirely.
+ * Skip Drive download only when a valid local PDF exists and rendered pages
+ * match the current render version. Stale CI page caches must not block PDF sync.
  */
 async function alreadyRendered(issue, fileId) {
+  const pdfPath = path.join(pdfDir, `${issue.id}.pdf`);
+
+  try {
+    await assertPdf(pdfPath, fileId);
+  } catch {
+    return false;
+  }
+
   try {
     const marker = JSON.parse(
       await readFile(path.join(pagesRoot, issue.id, 'rendered.json'), 'utf8'),
     );
-    return marker.fileId === fileId && marker.pageCount > 0;
+    return (
+      marker.version === RENDER_VERSION &&
+      marker.fileId === fileId &&
+      marker.pageCount > 0
+    );
   } catch {
     return false;
   }
