@@ -8,6 +8,11 @@ import { SpiritualOdyssey } from './pages/archives/spiritual-odyssey/spiritual-o
 import { CallOfTheFlute } from './pages/archives/call-of-the-flute/call-of-the-flute';
 import { EveningOfAharya } from './pages/archives/evening-of-aharya/evening-of-aharya';
 import { LivingTheDance } from './pages/archives/living-the-dance/living-the-dance';
+import { CupOCarnatic } from './pages/archives/cup-o-carnatic/cup-o-carnatic';
+import { EkTichiGoshta } from './pages/archives/ek-tichi-goshta/ek-tichi-goshta';
+import { MadhavamMahadevam } from './pages/archives/madhavam-mahadevam/madhavam-mahadevam';
+import { VaibhavArekarStudents } from './pages/archives/vaibhav-arekar-students/vaibhav-arekar-students';
+import { Vakrakara } from './pages/archives/vakrakara/vakrakara';
 import { Community } from './pages/community/community';
 import { QueerCommunity } from './pages/community/queer-community/queer-community';
 import { AshadiEkadashi } from './pages/community/ashadi-ekadashi/ashadi-ekadashi';
@@ -44,6 +49,31 @@ export const routes: Routes = [
     path: 'articles/archives/living-the-dance',
     component: LivingTheDance,
     title: 'Living the Dance | RASA',
+  },
+  {
+    path: 'articles/archives/cup-o-carnatic',
+    component: CupOCarnatic,
+    title: "Cup O' Carnatic | RASA",
+  },
+  {
+    path: 'articles/archives/ek-tichi-goshta',
+    component: EkTichiGoshta,
+    title: 'Ek Tichi Goshta | RASA',
+  },
+  {
+    path: 'articles/archives/madhavam-mahadevam',
+    component: MadhavamMahadevam,
+    title: 'Madhavam Mahadevam | RASA',
+  },
+  {
+    path: 'articles/archives/vaibhav-arekar-students',
+    component: VaibhavArekarStudents,
+    title: 'Vaibhav Arekar Students | RASA',
+  },
+  {
+    path: 'articles/archives/vakrakara',
+    component: Vakrakara,
+    title: 'Vakrākāra | RASA',
   },
   { path: 'articles/community', component: Community, title: 'Community | RASA' },
   {
