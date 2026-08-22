@@ -111,6 +111,13 @@ async function main() {
   await mkdir(pdfDir, { recursive: true });
 
   for (const issue of issues) {
+    const destination = path.join(pdfDir, `${issue.id}.pdf`);
+
+    if (issue.skipDriveSync && (await stat(destination).catch(() => null))) {
+      console.log(`Using committed local PDF for ${issue.title}`);
+      continue;
+    }
+
     const fileId = driveFileId(issue.driveUrl ?? '');
     if (!fileId) {
       console.warn(`Skipping ${issue.id}: could not parse Google Drive URL`);

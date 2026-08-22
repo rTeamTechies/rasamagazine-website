@@ -11,7 +11,7 @@ const indexPath = path.join(rootDir, 'public/content/magazines/index.json');
 const pagesRoot = path.join(rootDir, 'public/assets/magazines/pages');
 
 /** Bump RENDER_VERSION to force a re-render of every cached issue. */
-const RENDER_VERSION = 1;
+const RENDER_VERSION = 2;
 const DPI = 200;
 const WEBP_QUALITY = 80;
 const INTERMEDIATE_QUALITY = 92;
