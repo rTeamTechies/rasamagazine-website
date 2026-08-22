@@ -2,18 +2,16 @@ import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ContentService } from '../../services/content.service';
 import { ArticleBack } from '../../shared/article-back/article-back';
+import { Flower } from '../../shared/flower/flower';
 
 @Component({
   selector: 'app-about',
-  imports: [AsyncPipe, ArticleBack],
+  imports: [AsyncPipe, ArticleBack, Flower],
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })
 export class About {
   readonly site$ = inject(ContentService).getSite();
-
-  /** Eight-way rotation for layered floral petals (degrees). */
-  readonly petalAngles = [0, 45, 90, 135, 180, 225, 270, 315];
 
   readonly paragraphs = [
     'I am a Masters Graduate in the field of Communication and Journalism from Somaiya Vidyavihar University.',

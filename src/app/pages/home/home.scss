@@ -132,6 +132,61 @@
   animation-duration: 13s;
 }
 
+.flower-i {
+  width: clamp(70px, 8.5vw, 112px);
+  height: clamp(70px, 8.5vw, 112px);
+  left: 58%;
+  top: 36%;
+  color: color-mix(in srgb, var(--burgundy) 46%, transparent);
+  opacity: 0.4;
+  animation-delay: -3s;
+  animation-duration: 17s;
+}
+
+.flower-j {
+  width: clamp(42px, 5vw, 68px);
+  height: clamp(42px, 5vw, 68px);
+  left: 48%;
+  top: 52%;
+  color: color-mix(in srgb, var(--teal) 28%, var(--burgundy) 22%);
+  opacity: 0.34;
+  animation-delay: -8s;
+  animation-duration: 14s;
+}
+
+.flower-k {
+  width: clamp(54px, 6.5vw, 86px);
+  height: clamp(54px, 6.5vw, 86px);
+  left: 66%;
+  top: 58%;
+  color: color-mix(in srgb, var(--burgundy) 40%, transparent);
+  opacity: 0.36;
+  animation-delay: -12s;
+  animation-duration: 19s;
+}
+
+.flower-l {
+  width: clamp(36px, 4.5vw, 56px);
+  height: clamp(36px, 4.5vw, 56px);
+  left: 54%;
+  top: 24%;
+  color: color-mix(in srgb, var(--burgundy) 50%, transparent);
+  opacity: 0.3;
+  animation-delay: -1s;
+  animation-duration: 12s;
+}
+
+.flower-m {
+  width: clamp(60px, 7.5vw, 96px);
+  height: clamp(60px, 7.5vw, 96px);
+  left: 72%;
+  top: 28%;
+  color: color-mix(in srgb, var(--burgundy) 42%, transparent);
+  opacity: 0.38;
+  animation-delay: -10s;
+  animation-duration: 16s;
+}
+
 .home-atmosphere {
   position: absolute;
   inset: 0;
@@ -151,8 +206,7 @@
 }
 
 .hero-bar,
-.hero-main,
-.hero-footer {
+.hero-main {
   position: relative;
   z-index: 1;
 }
@@ -245,10 +299,14 @@
   gap: 0.9rem;
 }
 
-// `backwards` holds the offscreen start during the delay but releases the
-// transform once done, so the hover slide still works.
+// Enter from the right with a soft overshoot; `backwards` keeps the start pose
+// during the delay, then releases so hover / active transforms can take over.
 .cta {
-  animation: slide-in-right 0.85s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  --cta-shift: clamp(36px, 10vw, 78px);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  animation: cta-enter 0.95s cubic-bezier(0.22, 1, 0.36, 1) backwards;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -261,58 +319,107 @@
   letter-spacing: 0.09em;
   text-align: center;
   text-transform: uppercase;
-  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.28s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      115deg,
+      transparent 32%,
+      color-mix(in srgb, #fff 42%, transparent) 48%,
+      transparent 64%
+    );
+    transform: translateX(-130%);
+    opacity: 0;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .cta.primary {
   background: var(--accent);
   color: #fff;
   border: 1px solid var(--accent);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--burgundy) 22%, transparent);
+
+  &::before {
+    animation: cta-shimmer 1.15s ease 1.15s 1;
+  }
 }
 
 .cta.primary:hover {
-  transform: translateX(-4px);
+  transform: translateX(-5px) translateY(-2px);
   background: var(--burgundy-deep);
+  box-shadow: 0 14px 30px color-mix(in srgb, var(--burgundy) 30%, transparent);
 }
 
-.cta.ghost {
-  background: transparent;
-  color: var(--ink);
-  border: 1.5px solid var(--ink);
-}
-
-.cta.ghost:hover {
-  transform: translateX(-4px);
-  background: color-mix(in srgb, var(--charcoal) 6%, transparent);
+.cta.primary:active {
+  transform: scale(0.96) translateY(1px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--burgundy) 28%, transparent);
+  transition-duration: 0.12s;
 }
 
 .cta.outline {
   background: transparent;
   color: var(--accent);
   border: 1.5px solid var(--accent);
+
+  &::before {
+    background: linear-gradient(
+      115deg,
+      transparent 32%,
+      color-mix(in srgb, var(--accent) 28%, transparent) 48%,
+      transparent 64%
+    );
+    animation: cta-shimmer 1.15s ease 1.35s 1;
+  }
 }
 
 .cta.outline:hover {
-  transform: translateX(-4px);
+  transform: translateX(-5px) translateY(-2px);
   background: color-mix(in srgb, var(--accent) 8%, transparent);
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--burgundy) 14%, transparent);
+}
+
+.cta.outline:active {
+  transform: scale(0.96) translateY(1px);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  transition-duration: 0.12s;
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .cta:nth-child(1) {
-  animation-delay: 0.25s;
+  animation-delay: 0.28s;
 }
 
 .cta:nth-child(2) {
-  animation-delay: 0.4s;
+  animation-delay: 0.46s;
 }
 
-.cta:nth-child(3) {
-  animation-delay: 0.55s;
-}
-
-@keyframes slide-in-right {
+@keyframes cta-enter {
   from {
     opacity: 0;
-    transform: translateX(clamp(40px, 12vw, 90px));
+    transform: translateX(var(--cta-shift)) scale(0.92);
+  }
+  68% {
+    opacity: 1;
+    transform: translateX(-6px) scale(1.03);
   }
   to {
     opacity: 1;
@@ -320,12 +427,18 @@
   }
 }
 
-.play {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 6px 0 6px 10px;
-  border-color: transparent transparent transparent currentColor;
+@keyframes cta-shimmer {
+  0% {
+    opacity: 0;
+    transform: translateX(-130%);
+  }
+  18% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(130%);
+  }
 }
 
 @keyframes rise {
@@ -336,46 +449,6 @@
   to {
     opacity: 1;
     transform: none;
-  }
-}
-
-.hero-footer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-top: 0.5rem;
-}
-
-.scroll-hint {
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: var(--accent);
-  position: relative;
-  padding-right: 1.4rem;
-
-  &::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    width: 10px;
-    height: 10px;
-    border-right: 1.5px solid currentColor;
-    border-bottom: 1.5px solid currentColor;
-    transform: translateY(-70%) rotate(45deg);
-    animation: nudge 1.6s ease-in-out infinite;
-  }
-}
-
-@keyframes nudge {
-  0%,
-  100% {
-    transform: translateY(-70%) rotate(45deg);
-  }
-  50% {
-    transform: translateY(-40%) rotate(45deg);
   }
 }
 
@@ -577,7 +650,11 @@
   }
 
   .cta:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+  }
+
+  .cta:active {
+    transform: scale(0.96);
   }
 
   .rasa-logo {
@@ -606,6 +683,8 @@
 
   .flower-h,
   .flower-f,
+  .flower-l,
+  .flower-m,
   .flower-intro-b,
   .flower-intro-c,
   .flower-nav-c {
@@ -615,9 +694,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .flower,
-  .scroll-hint::after,
   .hero-copy,
-  .cta {
+  .cta,
+  .cta::before {
     animation: none !important;
     transition: none !important;
   }

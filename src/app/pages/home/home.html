@@ -10,6 +10,11 @@
         <app-flower class="flower flower-f" variant="soft" />
         <app-flower class="flower flower-g" variant="fine" />
         <app-flower class="flower flower-h" variant="bold" />
+        <app-flower class="flower flower-i" variant="medium" />
+        <app-flower class="flower flower-j" variant="soft" />
+        <app-flower class="flower flower-k" variant="fine" />
+        <app-flower class="flower flower-l" variant="bold" />
+        <app-flower class="flower flower-m" variant="soft" />
       </div>
 
       <div class="hero-bar">
@@ -37,19 +42,11 @@
         </div>
 
         <nav class="cta-rail" aria-label="Explore RASA">
-          <a class="cta primary" routerLink="/magazine">Explore Magazine</a>
-          <a class="cta ghost" routerLink="/videos">
-            <span class="play" aria-hidden="true"></span>
-            Watch Videos
-          </a>
+          <a class="cta primary" routerLink="/" fragment="explore">Explore</a>
           <a class="cta outline" [routerLink]="site.home.partnershipLinkPath">
             {{ site.home.partnershipHeroLabel }}
           </a>
         </nav>
-      </div>
-
-      <div class="hero-footer">
-        <a class="scroll-hint" routerLink="/" fragment="explore">Explore</a>
       </div>
     </header>
 
