@@ -112,6 +112,12 @@ async function main() {
     }
 
     const destination = path.join(pdfDir, `${issue.id}.pdf`);
+
+    if (issue.skipDriveSync && (await alreadyHavePdf(destination))) {
+      console.log(`Using committed local PDF for ${issue.title}`);
+      continue;
+    }
+
     if (await alreadyHavePdf(destination)) {
       const bytes = (await stat(destination)).size;
       console.log(`Skipping download for ${issue.title} (PDF already on disk, ${(bytes / (1024 * 1024)).toFixed(1)} MB)`);
