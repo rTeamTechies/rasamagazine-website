@@ -6,10 +6,11 @@ import {
   viewChild,
 } from '@angular/core';
 import { ArticleBack } from '../../../shared/article-back/article-back';
+import { ArticleAtmosphere } from '../../../shared/article-atmosphere/article-atmosphere';
 
 @Component({
   selector: 'app-spiritual-odyssey',
-  imports: [ArticleBack],
+  imports: [ArticleBack, ArticleAtmosphere],
   templateUrl: './spiritual-odyssey.html',
   styleUrl: './spiritual-odyssey.scss',
 })

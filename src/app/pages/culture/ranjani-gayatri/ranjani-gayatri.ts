@@ -6,10 +6,11 @@ import {
   viewChildren,
 } from '@angular/core';
 import { ArticleBack } from '../../../shared/article-back/article-back';
+import { ArticleAtmosphere } from '../../../shared/article-atmosphere/article-atmosphere';
 
 @Component({
   selector: 'app-ranjani-gayatri',
-  imports: [ArticleBack],
+  imports: [ArticleBack, ArticleAtmosphere],
   templateUrl: './ranjani-gayatri.html',
   styleUrl: './ranjani-gayatri.scss',
 })

@@ -64,6 +64,17 @@ button {
   min-height: 100vh;
 }
 
+.page.has-atmosphere {
+  position: relative;
+  overflow: hidden;
+
+  > .wrap,
+  > article.wrap {
+    position: relative;
+    z-index: 1;
+  }
+}
+
 .display {
   font-family: var(--font-display);
   font-weight: 700;
