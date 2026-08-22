@@ -37,6 +37,17 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Match article page teal so overscroll / bottom gaps never flash ivory. */
+html:has(.page.has-atmosphere),
+body:has(.page.has-atmosphere),
+html:has(.page.category),
+body:has(.page.category),
+html:has(.page.articles),
+body:has(.page.articles) {
+  background-color: rgb(1, 77, 78);
+  overscroll-behavior-y: none;
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -67,9 +78,14 @@ button {
 .page.has-atmosphere {
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px));
+  background-color: rgb(1, 77, 78);
 
   > .wrap,
-  > article.wrap {
+  > article.wrap,
+  > app-article-back {
     position: relative;
     z-index: 1;
   }
