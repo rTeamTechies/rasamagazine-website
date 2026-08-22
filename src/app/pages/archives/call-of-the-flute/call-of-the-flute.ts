@@ -6,10 +6,11 @@ import {
   viewChildren,
 } from '@angular/core';
 import { ArticleBack } from '../../../shared/article-back/article-back';
+import { ArticleAtmosphere } from '../../../shared/article-atmosphere/article-atmosphere';
 
 @Component({
   selector: 'app-call-of-the-flute',
-  imports: [ArticleBack],
+  imports: [ArticleBack, ArticleAtmosphere],
   templateUrl: './call-of-the-flute.html',
   styleUrl: './call-of-the-flute.scss',
 })

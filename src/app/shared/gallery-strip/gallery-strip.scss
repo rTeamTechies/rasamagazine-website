@@ -4,8 +4,26 @@
 
 .strip {
   position: relative;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   padding: 0.9rem 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(51, 51, 51, 0.35) transparent;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(51, 51, 51, 0.35);
+    border-radius: 999px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--burgundy, #800020);
+    outline-offset: 4px;
+  }
 
   /* Feathers both ends so photos drift in and out instead of being cut off. */
   mask-image: linear-gradient(
@@ -21,13 +39,21 @@
   display: flex;
   align-items: center;
   width: max-content;
-  animation: gallery-slide var(--gallery-duration, 120s) linear infinite;
+  will-change: scroll-position;
 }
 
-.strip:hover .track,
-.strip:focus-within .track,
-.strip.is-lightbox-open .track {
-  animation-play-state: paused;
+/* When auto-scroll is active, hide the scrollbar so the strip looks like before. */
+.strip:not(.is-manual) {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.strip.is-manual {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(51, 51, 51, 0.35) transparent;
 }
 
 .frame {
@@ -119,16 +145,6 @@
   animation: lightbox-zoom 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-@keyframes gallery-slide {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    /* Exactly one copy of the photos, so the second copy lands where the first began. */
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
 @keyframes lightbox-fade {
   from {
     opacity: 0;
@@ -150,18 +166,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .strip {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .track {
-    animation: none;
-  }
-
   .frame {
-    scroll-snap-align: center;
     transition: none;
 
     &:hover {

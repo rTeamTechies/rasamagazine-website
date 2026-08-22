@@ -6,10 +6,11 @@ import {
   viewChildren,
 } from '@angular/core';
 import { ArticleBack } from '../../../shared/article-back/article-back';
+import { ArticleAtmosphere } from '../../../shared/article-atmosphere/article-atmosphere';
 
 @Component({
   selector: 'app-evening-of-aharya',
-  imports: [ArticleBack],
+  imports: [ArticleBack, ArticleAtmosphere],
   templateUrl: './evening-of-aharya.html',
   styleUrl: './evening-of-aharya.scss',
 })

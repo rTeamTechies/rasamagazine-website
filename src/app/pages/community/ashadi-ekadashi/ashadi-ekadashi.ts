@@ -6,10 +6,11 @@ import {
   viewChildren,
 } from '@angular/core';
 import { ArticleBack } from '../../../shared/article-back/article-back';
+import { ArticleAtmosphere } from '../../../shared/article-atmosphere/article-atmosphere';
 
 @Component({
   selector: 'app-ashadi-ekadashi',
-  imports: [ArticleBack],
+  imports: [ArticleBack, ArticleAtmosphere],
   templateUrl: './ashadi-ekadashi.html',
   styleUrl: './ashadi-ekadashi.scss',
 })
