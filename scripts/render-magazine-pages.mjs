@@ -26,6 +26,7 @@ function cacheKey(issue) {
   return {
     version: RENDER_VERSION,
     fileId: driveFileId(issue.driveUrl),
+    sourceRevision: issue.sourceRevision ?? '',
     dpi: DPI,
     quality: WEBP_QUALITY,
   };
