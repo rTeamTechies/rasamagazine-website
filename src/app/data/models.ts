@@ -38,6 +38,12 @@ export interface SiteContent {
     partnershipLinkLabel: string;
     partnershipHeroLabel: string;
     partnershipLinkPath: string;
+    feedback: {
+      title: string;
+      intro: string[];
+      invite: string;
+      items: { name: string; quote: string; photo?: string }[];
+    };
   };
 }
 
