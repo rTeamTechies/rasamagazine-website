@@ -46,6 +46,9 @@
           <a class="cta outline" [routerLink]="site.home.partnershipLinkPath">
             {{ site.home.partnershipHeroLabel }}
           </a>
+          <a class="cta outline" routerLink="/" fragment="feedback">
+            {{ site.home.communityHeroLabel }}
+          </a>
         </nav>
       </div>
     </header>
@@ -67,8 +70,24 @@
         [images]="site.home.gallery"
         label="Moments from RASA"
       />
+    </section>
 
-      <div class="feedback-block carousel-light">
+    <section class="nav-section" id="explore">
+      <div class="home-atmosphere" aria-hidden="true">
+        <app-flower class="flower flower-nav-a" variant="bold" />
+        <app-flower class="flower flower-nav-b" variant="soft" />
+        <app-flower class="flower flower-nav-c" variant="fine" />
+      </div>
+      <app-h-carousel class="nav-carousel">
+        @for (item of site.home.nav; track item.path) {
+          <a class="nav-item" [routerLink]="item.path">
+            <span class="display nav-label">{{ item.label }}</span>
+            <img [src]="item.image" [alt]="item.label" />
+          </a>
+        }
+      </app-h-carousel>
+
+      <div id="feedback" class="feedback-block carousel-light">
         <div class="feedback-copy">
           <h2 class="display">{{ site.home.feedback.title }}</h2>
           @for (p of site.home.feedback.intro; track p) {
@@ -115,22 +134,7 @@
           }
         </app-h-carousel>
       </div>
-    </section>
 
-    <section class="nav-section" id="explore">
-      <div class="home-atmosphere" aria-hidden="true">
-        <app-flower class="flower flower-nav-a" variant="bold" />
-        <app-flower class="flower flower-nav-b" variant="soft" />
-        <app-flower class="flower flower-nav-c" variant="fine" />
-      </div>
-      <app-h-carousel class="nav-carousel">
-        @for (item of site.home.nav; track item.path) {
-          <a class="nav-item" [routerLink]="item.path">
-            <span class="display nav-label">{{ item.label }}</span>
-            <img [src]="item.image" [alt]="item.label" />
-          </a>
-        }
-      </app-h-carousel>
       <a class="partnership-cta" [routerLink]="site.home.partnershipLinkPath">
         <span class="display">{{ site.home.partnershipLinkLabel }}</span>
         <span class="cta-arrow" aria-hidden="true">→</span>

@@ -412,6 +412,10 @@
   animation-delay: 0.46s;
 }
 
+.cta:nth-child(3) {
+  animation-delay: 0.64s;
+}
+
 @keyframes cta-enter {
   from {
     opacity: 0;
@@ -523,12 +527,16 @@
 .feedback-block {
   position: relative;
   z-index: 1;
-  width: min(1100px, calc(100% - 1.25rem));
-  margin: clamp(2.5rem, 6vw, 4.5rem) auto 0;
+  width: 100%;
+  margin: 0;
+  padding: clamp(2rem, 5vw, 3.25rem) 0 clamp(1.35rem, 3vw, 2rem);
+  background: var(--ivory);
+  color: var(--charcoal);
+  scroll-margin-top: 0.5rem;
 }
 
 .feedback-copy {
-  width: min(920px, 100%);
+  width: min(920px, calc(100% - 1.25rem));
   margin: 0 auto 1.75rem;
   text-align: justify;
 
@@ -582,6 +590,8 @@
 }
 
 .feedback-carousel {
+  width: min(1100px, calc(100% - 1.25rem));
+  margin: 0 auto;
   color: var(--burgundy);
 }
 
@@ -772,7 +782,7 @@
   position: relative;
   overflow: hidden;
   background: var(--burgundy);
-  padding: clamp(3rem, 5.5vw, 4rem) 0;
+  padding: clamp(3rem, 5.5vw, 4rem) 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -859,7 +869,7 @@
   gap: 0.75rem;
   min-height: 52px;
   padding: 0.85rem 1.6rem;
-  margin-top: 0.35rem;
+  margin: 0.15rem 0 clamp(2.5rem, 5vw, 3.5rem);
   background: var(--ivory);
   color: var(--burgundy);
   border: 2px solid var(--ivory);
@@ -930,7 +940,7 @@
   }
 
   .feedback-copy {
-    width: 100%;
+    width: calc(100% - 1.25rem);
   }
 
   .feedback-portrait {
