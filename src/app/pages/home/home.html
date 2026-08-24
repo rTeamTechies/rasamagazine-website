@@ -67,6 +67,54 @@
         [images]="site.home.gallery"
         label="Moments from RASA"
       />
+
+      <div class="feedback-block carousel-light">
+        <div class="feedback-copy">
+          <h2 class="display">{{ site.home.feedback.title }}</h2>
+          @for (p of site.home.feedback.intro; track p) {
+            <p>{{ p }}</p>
+          }
+          <p class="feedback-invite">{{ site.home.feedback.invite }}</p>
+          <div class="feedback-links">
+            <a class="feedback-link" [href]="site.links.email">{{ site.links.emailLabel }}</a>
+            <a
+              class="feedback-link"
+              [href]="site.links.instagramRasa"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img [src]="site.brand.instagramIcon" alt="" />
+              @rasabyartsyanju
+            </a>
+          </div>
+        </div>
+
+        <app-h-carousel class="feedback-carousel">
+          @for (item of site.home.feedback.items; track item.name) {
+            <article
+              class="feedback-portrait"
+              [class.has-photo]="!!item.photo"
+              [class.is-open]="openFeedback === item.name"
+              tabindex="0"
+              (click)="onFeedbackTap($event, item.name)"
+            >
+              <div class="feedback-media">
+                @if (item.photo) {
+                  <img [src]="item.photo" [alt]="item.name" />
+                } @else {
+                  <div class="feedback-photo-fallback" aria-hidden="true"></div>
+                }
+              </div>
+              <span class="feedback-frame" aria-hidden="true"></span>
+              <p class="feedback-caption display">{{ item.name }}</p>
+              <div class="feedback-veil">
+                <blockquote>{{ item.quote }}</blockquote>
+                <p class="feedback-name display">{{ item.name }}</p>
+              </div>
+            </article>
+          }
+        </app-h-carousel>
+      </div>
     </section>
 
     <section class="nav-section" id="explore">

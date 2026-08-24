@@ -16,4 +16,9 @@ export class Home {
   private readonly content = inject(ContentService);
 
   readonly site$ = this.content.getSite();
+  openFeedback: string | null = null;
+
+  onFeedbackTap(_event: Event, name: string): void {
+    this.openFeedback = this.openFeedback === name ? null : name;
+  }
 }
