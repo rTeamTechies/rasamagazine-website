@@ -37,6 +37,7 @@ export interface SiteContent {
     nav: HomeNavItem[];
     partnershipLinkLabel: string;
     partnershipHeroLabel: string;
+    communityHeroLabel: string;
     partnershipLinkPath: string;
     feedback: {
       title: string;
