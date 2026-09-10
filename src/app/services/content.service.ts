@@ -23,7 +23,7 @@ export class ContentService {
   private readonly magazines$ = this.http
     .get<MagazineIssue[]>('content/magazines/index.json')
     .pipe(
-      map((issues) => issues.filter((i) => i.published).sort((a, b) => a.volume - b.volume)),
+      map((issues) => issues.filter((i) => i.published).sort((a, b) => b.volume - a.volume)),
       shareReplay(1),
     );
 
