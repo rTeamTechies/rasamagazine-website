@@ -47,6 +47,12 @@
     pointer-events: auto;
   }
 
+  &.is-visible.is-docked {
+    position: absolute;
+    bottom: 0.85rem;
+    transform: translateX(-50%);
+  }
+
   &:hover .article-back-arrow {
     transform: translateX(-4px);
   }
@@ -73,6 +79,11 @@
       transform: translateX(-50%);
       opacity: 1;
       pointer-events: auto;
+    }
+
+    &.is-visible.is-docked {
+      position: absolute;
+      bottom: 0.85rem;
     }
   }
 }

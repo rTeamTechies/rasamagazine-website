@@ -22,29 +22,55 @@ export class ArticleBack implements AfterViewInit, OnDestroy {
 
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly sentinel = viewChild<ElementRef<HTMLElement>>('sentinel');
-  private observer?: IntersectionObserver;
+  private nearEnd = false;
+  private footerInView = false;
+  private endObserver?: IntersectionObserver;
+  private footerObserver?: IntersectionObserver;
 
-  visible = false;
+  get visible(): boolean {
+    return this.nearEnd;
+  }
+
+  get docked(): boolean {
+    return this.footerInView;
+  }
 
   ngAfterViewInit(): void {
     const el = this.sentinel()?.nativeElement;
     if (!el) return;
 
-    this.observer = new IntersectionObserver(
+    this.endObserver = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
-          this.visible = entry.isIntersecting;
-        }
-        this.cdr.markForCheck();
+        this.nearEnd = entries.some((entry) => entry.isIntersecting);
+        this.cdr.detectChanges();
       },
-      // Expand the top edge so the button appears as you approach the page end,
-      // and keep the bottom open so it still shows when you are fully scrolled down.
       { threshold: 0, rootMargin: '120px 0px 0px 0px' },
     );
-    this.observer.observe(el);
+    this.endObserver.observe(el);
+    this.watchFooter();
   }
 
   ngOnDestroy(): void {
-    this.observer?.disconnect();
+    this.endObserver?.disconnect();
+    this.footerObserver?.disconnect();
+  }
+
+  private watchFooter(attempt = 0): void {
+    const footer = document.querySelector('app-site-footer');
+    if (!footer) {
+      if (attempt < 20) {
+        requestAnimationFrame(() => this.watchFooter(attempt + 1));
+      }
+      return;
+    }
+
+    this.footerObserver = new IntersectionObserver(
+      (entries) => {
+        this.footerInView = entries.some((entry) => entry.isIntersecting);
+        this.cdr.detectChanges();
+      },
+      { threshold: 0 },
+    );
+    this.footerObserver.observe(footer);
   }
 }

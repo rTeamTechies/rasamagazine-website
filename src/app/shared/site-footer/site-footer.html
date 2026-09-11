@@ -1,0 +1,43 @@
+@if (site$ | async; as site) {
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-block">
+        <a class="footer-mark" routerLink="/" [attr.aria-label]="site.siteName">
+          <span class="footer-word display">RASA</span>
+          <span class="footer-sub display">Magazine</span>
+        </a>
+        <p class="footer-tagline">{{ site.tagline }}</p>
+      </div>
+
+      <nav class="footer-col" aria-label="Explore">
+        <p class="footer-heading display">Explore</p>
+        @for (item of exploreLinks; track item.path) {
+          <a
+            [routerLink]="item.path"
+            routerLinkActive="is-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >{{ item.label }}</a>
+        }
+      </nav>
+
+      <nav class="footer-col" aria-label="Connect">
+        <p class="footer-heading display">Connect</p>
+        <a
+          routerLink="/partnership-contact"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >Partnership &amp; Contact</a>
+        <a
+          class="footer-social"
+          [href]="site.links.instagramRasa"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img [src]="site.brand.instagramIcon" alt="" />
+          &#64;rasamagazineofficial
+        </a>
+        <a [href]="site.links.email">{{ site.links.emailLabel }}</a>
+      </nav>
+    </div>
+  </footer>
+}
