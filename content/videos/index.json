@@ -1,0 +1,19 @@
+{
+  "intro": "RASA's editor, Anjaneya Mulekar, also puts out parallel YouTube Content with interviews of experts and exploration of heritage sites",
+  "series": [
+    {
+      "id": "in-conversation",
+      "title": "IN CONVERSATION WITH ANJANEYA",
+      "description": "Is a podcast - interview series where experts are interviewed regarding their field of knowledge with topics ranging from art, media, wildlife, sports and much more",
+      "playlistUrl": "https://www.youtube.com/watch?v=81jT1FeRRFY&list=PL8FR-aFwfrj0p7uyJ5DOKnAskO_ei1g2N",
+      "embedUrl": "https://www.youtube.com/embed/videoseries?list=PL8FR-aFwfrj0p7uyJ5DOKnAskO_ei1g2N"
+    },
+    {
+      "id": "explained",
+      "title": "EXPLAINED BY ANJANEYA",
+      "description": "is an informative series which talks about different heritage sites in Mumbai and explains their history, significance and cultural importance in the most basic manner",
+      "playlistUrl": "https://www.youtube.com/watch?v=xRFC-yCJgqs&list=PL8FR-aFwfrj2SFyd5xzxPM0RizjlU9GDy",
+      "embedUrl": "https://www.youtube.com/embed/videoseries?list=PL8FR-aFwfrj2SFyd5xzxPM0RizjlU9GDy"
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "siteName": "RASA Magazine",
+  "tagline": "WHERE ART MEETS CULTURE",
+  "editor": "Anjaneya Mulekar",
+  "links": {
+    "youtube": "https://www.youtube.com/@artsyanju",
+    "instagramRasa": "https://www.instagram.com/rasamagazineofficial",
+    "instagramPersonal": "https://www.instagram.com/artsyanju",
+    "email": "mailto:editor@rasamgazine.com",
+    "emailLabel": "editor@rasamgazine.com",
+    "phone": "tel:+918452062193",
+    "phoneLabel": "+91 8452062193",
+    "cv": "https://drive.google.com/drive/folders/12duOf2WgYW3dLqUKILwtXD0x4Xb_Ze0j?usp=drive_link"
+  },
+  "brand": {
+    "rasaLogo": "assets/images/brand/rasa-logo.png",
+    "artsyLogo": "assets/images/brand/artsy-anju.png",
+    "youtubeIcon": "assets/images/brand/youtube.png",
+    "instagramIcon": "assets/images/brand/instagram.png",
+    "aboutPortrait": "assets/images/articles/nav-about.png"
+  },
+  "home": {
+    "heroLead": "A digital magazine exploring classical arts, cinema, fashion, food, heritage and the creative voices shaping culture today.",
+    "introParagraphs": [
+      "Rasa is a digital magazine dedicated to the arts, culture, heritage, and the stories that shape our world. From classical performances and emerging artists to cinema, fashion, food, heritage and contemporary cultural conversations, Rasa brings together diverse forms of creative expression under one platform.",
+      "We believe culture is not something distant or confined to tradition, it is living, evolving, and meant to be experienced by everyone. Through thoughtful writing, interviews, reviews and visual storytelling, Rasa explores culture with a fresh, contemporary perspective while celebrating the richness of where we come from.",
+      "Rasa is a space to discover, experience, and engage with culture."
+    ],
+    "gallery": [
+      "assets/images/gallery/img_1304.webp",
+      "assets/images/gallery/img_1456.webp",
+      "assets/images/gallery/img_2010.webp",
+      "assets/images/gallery/img_2483.webp",
+      "assets/images/gallery/img_2485.webp",
+      "assets/images/gallery/img_2490.webp",
+      "assets/images/gallery/img_2491.webp",
+      "assets/images/gallery/img_2748.webp",
+      "assets/images/gallery/img_2769.webp",
+      "assets/images/gallery/img_2770.webp",
+      "assets/images/gallery/img_2771.webp",
+      "assets/images/gallery/img_2772.webp",
+      "assets/images/gallery/img_2773.webp",
+      "assets/images/gallery/img_2774.webp",
+      "assets/images/gallery/img_2775.webp",
+      "assets/images/gallery/img_2776.webp",
+      "assets/images/gallery/img_2777.webp",
+      "assets/images/gallery/img_2778.webp",
+      "assets/images/gallery/img_2779.webp",
+      "assets/images/gallery/img_2780.webp",
+      "assets/images/gallery/img_2781.webp",
+      "assets/images/gallery/img_2782.webp",
+      "assets/images/gallery/img_2800.webp",
+      "assets/images/gallery/img_2801.webp",
+      "assets/images/gallery/img_2802.webp",
+      "assets/images/gallery/img_2803.webp",
+      "assets/images/gallery/img_2804.webp",
+      "assets/images/gallery/img_2805.webp",
+      "assets/images/gallery/img_2806.webp",
+      "assets/images/gallery/img_5051.webp",
+      "assets/images/gallery/img_5181.webp",
+      "assets/images/gallery/img_5706.webp",
+      "assets/images/gallery/img_5759.webp",
+      "assets/images/gallery/img_5762.webp",
+      "assets/images/gallery/img_5767.webp",
+      "assets/images/gallery/img_5787.webp",
+      "assets/images/gallery/img_5793.webp",
+      "assets/images/gallery/img_5839.webp",
+      "assets/images/gallery/img_5847.webp",
+      "assets/images/gallery/img_6251.webp",
+      "assets/images/gallery/img_6257.webp",
+      "assets/images/gallery/img_6285.webp",
+      "assets/images/gallery/img_7140.webp",
+      "assets/images/gallery/img_9727.webp"
+    ],
+    "nav": [
+      {
+        "label": "MAGAZINE",
+        "path": "/magazine",
+        "image": "assets/images/magazines/vol-5-august-2026.jpg"
+      },
+      {
+        "label": "ARTICLES",
+        "path": "/articles",
+        "image": "assets/images/articles/nav-articles.png"
+      },
+      {
+        "label": "VIDEOS",
+        "path": "/videos",
+        "image": "assets/images/articles/nav-videos.jpg"
+      },
+      {
+        "label": "ABOUT ME",
+        "path": "/about-me",
+        "image": "assets/images/articles/nav-about.png"
+      }
+    ],
+    "partnershipLinkLabel": "PARTNERSHIP & CONTACT",
+    "partnershipHeroLabel": "Partnership & Collaboration",
+    "communityHeroLabel": "From the community",
+    "partnershipLinkPath": "/partnership-contact",
+    "feedback": {
+      "title": "Feedback",
+      "intro": [
+        "Rasa is shaped not only by what we create, but also by the people who believe in what we are building.",
+        "Below, you’ll find a few words from artists, practitioners, readers and well-wishers who have supported Rasa and shared their thoughts along the way.",
+        "Their encouragement, perspectives and feedback mean a great deal to us — and remind us why we began this journey. Rasa is a conversation, and we want you to be part of it.",
+        "Share your thoughts, suggestions and ideas with us. Your feedback helps us grow, discover, and create a better space for art and culture."
+      ],
+      "invite": "Tell us what you think.",
+      "items": [
+        {
+          "name": "Dr. Narthaki Nataraj",
+          "quote": "Best wishes for your festivals",
+          "photo": "assets/images/feedback/dr-narthaki-nataraj.jpg"
+        },
+        {
+          "name": "Suman Badami",
+          "photo": "assets/images/feedback/suman-badami.jpg",
+          "quote": "This digital magazine is a remarkable celebration of art, culture, and creativity. It beautifully covers a wide spectrum of subjects, including classical dance, music, cinema, fashion, paintings, architecture, sculpture, and thought-provoking research articles and contemporary perspectives. What makes the magazine truly special is its ability to bring together diverse art forms under one platform, offering readers a holistic cultural experience. The thoughtfully curated content, engaging writing, and rich visual presentation evoke a genuine sense of Rasa Asvada—the aesthetic joy and emotional fulfillment that lie at the heart of artistic appreciation. Wonderful to see the time and effort that has gone in to attending events, research and writing - and photos. Best wishes to RASA"
+        },
+        {
+          "name": "Lekha Prasad",
+          "photo": "assets/images/feedback/lekha-prasad.jpg",
+          "quote": "Rasa Magazine's June edition is a wonderful reflection of its genuine commitment to celebrating the arts and the artists who keep our cultural traditions alive. What stands out is the sensitivity and depth with which every feature is presented. Writing about art and artistic performances demands a nuanced understanding of culture, history, and creative expression, and this thoughtful approach is evident throughout the magazine. The carefully curated articles, engaging design, and visually appealing layout make for an enriching reading experience. The same excellence extends to Rasa's social media presence and digital edition, making the content accessible while preserving its artistic essence. Rasa is not just documenting events—it is creating a meaningful archive of artistic journeys and cultural conversations. Each edition leaves readers inspired and eagerly awaiting the next."
+        },
+        {
+          "name": "Preetisha Mohapatra",
+          "quote": "Thank you so much for this review",
+          "photo": "assets/images/feedback/preetisha-mohapatra.jpg"
+        },
+        {
+          "name": "Lekshmi Regunath",
+          "quote": "Your writing is genuinely interesting, I think it deserves to be seen more.",
+          "photo": "assets/images/feedback/lekshmi-regunath.jpg"
+        },
+        {
+          "name": "Rajadarshini Saravanan",
+          "quote": "Amazing initiative! All the best!",
+          "photo": "assets/images/feedback/rajadarshini-saravanan.jpg"
+        },
+        {
+          "name": "Keerthana Ravi",
+          "photo": "assets/images/feedback/keerthana-ravi.jpg",
+          "quote": "Namaskar. I would like to congratulate Anjaneya on this digital magazine that's touching over different topics, arts, literature, monuments, city life of Mumbai and all these aspects are very important to keep the city alive, the soul of the city alive. You may have great infrastructure, but without music, dance, poetry, literature, what is a city, what are people. So kudos to the Rasa magazine for having all these bits of knowledge and information about events. I wish you all the best and hope to read a lot more that Rasa has to offer."
+        },
+        {
+          "name": "Karthika Unnikrishnan",
+          "quote": "Thank you Anjaneya for your kind words. This means a lot 🙏",
+          "photo": "assets/images/feedback/karthika-unnikrishnan.jpg"
+        },
+        {
+          "name": "Dhruva Upadhye",
+          "photo": "assets/images/feedback/dhruva-upadhye.jpg",
+          "quote": "As a dear friend of Anjaneya and a fellow rasika of classical arts, it is of great joy to read Rasa, a magazine dedicated to the richness of performing arts and artists in India. In this era of loud lifestyle, it is really surreal to go back and read an online magazine, one explaining the roots of our heritage. Likewise, the magazine also reflects the need to preserve and promote Indian arts in today’s fast-changing day and change. Moreover, the variety of sections covered in magazines such as arts, food and travel as well as the guest articles make it an interesting read! I look forward to what the upcoming editions bring for the readers!"
+        },
+        {
+          "name": "Keerti Naren",
+          "photo": "assets/images/feedback/keerti-naren.jpg",
+          "quote": "Rasa is one of the rare magazines celebrating art, culture and tradition. As a dancer I’ve only seen other performers take interest in cultural performances. It is truly delightful to see a Rasika take keen interest in art and create a wonderful collection of stories from it. This magazine has the capability to build a community of Rasikas which could be just the thing that is needed in today’s age and time. Eagerly waiting for Anjenay to publish further editions of RASA !!"
+        },
+        {
+          "name": "Sharayu Gavi",
+          "quote": "Congrats Anjaneya! This is great!",
+          "photo": "assets/images/feedback/sharayu-gavi.jpg"
+        },
+        {
+          "name": "Shraddha Sunil",
+          "quote": "Hey Anjaneya! Huge fan! I recently saw RASA and absolutely loved the way you explored classical arts. It’s so wonderful to see classical art finally getting the appreciation it truly deserves. Can genuinely see the amount of thought, effort and hard work you’ve poured into every single page! Congratulations on creating something so beautiful! I’d love to see future editions touch upon Indian fine arts as well. A lot of them are now dying due to lack of recognition. I’m sure your perspective on them would be an interesting read!"
+        },
+        {
+          "name": "Rucha Kulkarni",
+          "quote": "Hey I just finished reading the entire magazine and I love it! Esp after watching devil wears prada 2 it really highlighted the concept of art and the importance of written media. Although magazines aren’t really my thing it was a very refreshing read and I couldn’t stop reading it. I’m so proud of you and what you are doing creatively. It's amazing!!!"
+        }
+      ]
+    }
+  }
+}
