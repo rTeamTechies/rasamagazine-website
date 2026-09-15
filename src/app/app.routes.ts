@@ -16,6 +16,7 @@ import { Vakrakara } from './pages/archives/vakrakara/vakrakara';
 import { Community } from './pages/community/community';
 import { QueerCommunity } from './pages/community/queer-community/queer-community';
 import { AshadiEkadashi } from './pages/community/ashadi-ekadashi/ashadi-ekadashi';
+import { GanpatiBappaMorya } from './pages/community/ganpati-bappa-morya/ganpati-bappa-morya';
 import { Culture } from './pages/culture/culture';
 import { RanjaniGayatri } from './pages/culture/ranjani-gayatri/ranjani-gayatri';
 import { RathaYatra } from './pages/culture/ratha-yatra/ratha-yatra';
@@ -135,6 +136,14 @@ export const routes: Routes = [
     component: QueerCommunity,
     title: 'Queer Community | RASA Magazine',
     data: seo('Read “Queer Community” on RASA Magazine, a community feature on arts and culture.'),
+  },
+  {
+    path: 'articles/community/ganpati-bappa-morya',
+    component: GanpatiBappaMorya,
+    title: 'Ganpati Bappa Morya | RASA Magazine',
+    data: seo(
+      'Read “Ganpati Bappa Morya” now fills the whole city! — a RASA community feature on Ganesh Chaturthi, Mumbai and public celebration.',
+    ),
   },
   {
     path: 'articles/community/ashadi-ekadashi',
