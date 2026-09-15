@@ -15,7 +15,7 @@ export class About {
 
   readonly paragraphs = [
     'I am a Masters Graduate in the field of Communication and Journalism from Somaiya Vidyavihar University.',
-    'I have always been fascinated by the world of arts and I too draw myself but its not of any good quality. But I decided tp start RASA as a way of documenting the events I watch and because of my love for the artistic world as well.',
+    'I have always been fascinated by the world of arts and I too draw myself but its not of any good quality. But I decided to start RASA as a way of documenting the events I watch and because of my love for the artistic world as well.',
     'I am also a nano content creator with 2k+ followers on instagram and I hope to make it full time for me as I engage with comedy sketches and funny videos.',
     'I am currently open to work and am equipped with good communication skills, good and basic designing skills and a keen interest for research!',
     'I am hoping to make RASA a proper established magazine in the future!',
