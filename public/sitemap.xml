@@ -50,67 +50,181 @@
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.rasamagazine.com/articles/archives</loc>
-    <lastmod>2026-08-22</lastmod>
+    <loc>https://www.rasamagazine.com/articles/the-performance-edit</loc>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.rasamagazine.com/articles/archives/cup-o-carnatic</loc>
+    <loc>https://www.rasamagazine.com/articles/the-performance-edit/magic-of-abhinaya</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/the-performance-edit/ras-milana</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/the-performance-edit/cup-o-carnatic</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.rasamagazine.com/articles/archives/ek-tichi-goshta</loc>
+    <loc>https://www.rasamagazine.com/articles/the-performance-edit/ek-tichi-goshta</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.rasamagazine.com/articles/archives/madhavam-mahadevam</loc>
+    <loc>https://www.rasamagazine.com/articles/the-performance-edit/madhavam-mahadevam</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.rasamagazine.com/articles/archives/vaibhav-arekar-students</loc>
+    <loc>https://www.rasamagazine.com/articles/the-performance-edit/vaibhav-arekar-students</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.rasamagazine.com/articles/archives/vakrakara</loc>
+    <loc>https://www.rasamagazine.com/articles/the-performance-edit/vakrakara</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.rasamagazine.com/articles/archives/spiritual-odyssey</loc>
+    <loc>https://www.rasamagazine.com/articles/the-performance-edit/spiritual-odyssey</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.rasamagazine.com/articles/archives/call-of-the-flute</loc>
+    <loc>https://www.rasamagazine.com/articles/the-performance-edit/call-of-the-flute</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.rasamagazine.com/articles/archives/evening-of-aharya</loc>
+    <loc>https://www.rasamagazine.com/articles/the-performance-edit/evening-of-aharya</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.rasamagazine.com/articles/archives/living-the-dance</loc>
+    <loc>https://www.rasamagazine.com/articles/the-performance-edit/living-the-dance</loc>
     <lastmod>2026-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/artist-in-focus</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/artist-in-focus/doyenne-of-abhinaya</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/reel-reflections</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/reel-reflections/project-hail-mary</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/living-heritage</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/living-heritage/shivaji-park</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/in-conversation</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/in-conversation/shriya-kulkarni</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/at-the-table</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/at-the-table/mokai</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/the-style-edit</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/the-style-edit/gaurav-gupta-runway</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/guest-voices</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/guest-voices/portuguese-church</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/guest-voices/mumbai-city-of-dreams</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/rasa-thinks</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/rasa-thinks/when-art-meets-love</loc>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

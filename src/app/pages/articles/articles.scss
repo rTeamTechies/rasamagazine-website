@@ -160,6 +160,15 @@ header p {
     border: 2px solid var(--charcoal);
   }
 
+  .card-art {
+    width: 100%;
+    aspect-ratio: 3 / 3.8;
+    border: 2px solid var(--charcoal);
+    background:
+      radial-gradient(circle at 50% 28%, rgba(255, 248, 231, 0.22), transparent 42%),
+      linear-gradient(180deg, #163e3f 0%, #012122 100%);
+  }
+
   .label {
     text-align: center;
     white-space: pre-line;
