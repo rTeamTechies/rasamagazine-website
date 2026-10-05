@@ -110,7 +110,7 @@
       "items": [
         {
           "name": "Dr. Narthaki Nataraj",
-          "quote": "Best wishes for your festivals",
+          "quote": "You are doing amazing dear. Best wishes for your festivals",
           "photo": "assets/images/feedback/dr-narthaki-nataraj.jpg"
         },
         {
@@ -129,7 +129,12 @@
           "photo": "assets/images/feedback/preetisha-mohapatra.jpg"
         },
         {
-          "name": "Lekshmi Regunath",
+          "name": "Sandhya Udupa",
+          "photo": "assets/images/feedback/sandhya-udupa.jpg",
+          "quote": "Hello, this is Sandhya Udupa and I just happened to meet Mr. Anjaneya from Rasa. And I am so thrilled to know about the initiative that RASA has been doing. Being a non-artist and a rasika, the initiative is something that is really, really interesting, because people come and watch and go. But then what RASA is doing is for the artist, from a non-artist, which is a very rare combination. And I really wish and hope RASA will turn out to be a big organization where it becomes the artist's favorite, and I look forward to its growth. Thank you."
+        },
+        {
+          "name": "Lekshmi Reghunath",
           "quote": "Your writing is genuinely interesting, I think it deserves to be seen more.",
           "photo": "assets/images/feedback/lekshmi-regunath.jpg"
         },
@@ -142,6 +147,16 @@
           "name": "Keerthana Ravi",
           "photo": "assets/images/feedback/keerthana-ravi.jpg",
           "quote": "Namaskar. I would like to congratulate Anjaneya on this digital magazine that's touching over different topics, arts, literature, monuments, city life of Mumbai and all these aspects are very important to keep the city alive, the soul of the city alive. You may have great infrastructure, but without music, dance, poetry, literature, what is a city, what are people. So kudos to the Rasa magazine for having all these bits of knowledge and information about events. I wish you all the best and hope to read a lot more that Rasa has to offer."
+        },
+        {
+          "name": "Namrata Mehta",
+          "photo": "assets/images/feedback/namrata-mehta.jpg",
+          "quote": "Namaste, I'm Namrata Mehta. I'm an Odissi dancer. I really want to congratulate RASA Magazine and Anjaneya for this wonderful initiative which is for the arts and for the artists. And there's lots happening in this magazine and I must say it's not just for the dancers and artists, it's for everyone because he's covering everything that's happening in Mumbai and I'm really, really happy. And so thank you so much, Rasa Magazine, for bringing this to Mumbai and making it available to the Rasikas. Thank you."
+        },
+        {
+          "name": "Prachi Saathi",
+          "photo": "assets/images/feedback/prachi-saathi.jpg",
+          "quote": "I want to make a special mention of Anjaneya and the Rasa magazine. I think what he is doing is truly a commendable effort towards propagation of the arts, especially the way he is seen around in all the art circles. He is attending the right kind of programs, he is attending the right kind of events and he is very meticulously covering it, talking about it, adding his own sort of, I would say, his own understanding of whatever he has gathered from all of it. And we need more people like him and we need more magazines like Rasa to cover art, especially the classical arts and kudos to you and the work that you are doing."
         },
         {
           "name": "Karthika Unnikrishnan",
