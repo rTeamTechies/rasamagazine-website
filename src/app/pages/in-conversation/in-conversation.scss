@@ -1,1 +1,13 @@
 @use '../shared/category-page' as *;
+
+// The interview thumbnail is a landscape photo, so show it in a landscape
+// card instead of cropping it into the default tall 9:16 card.
+.card {
+  flex: 0 0 min(460px, 88vw);
+  aspect-ratio: 4 / 3;
+  min-height: 0;
+
+  img {
+    object-position: center center;
+  }
+}

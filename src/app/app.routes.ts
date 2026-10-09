@@ -256,7 +256,7 @@ export const routes: Routes = [
     component: InConversation,
     title: 'In Conversation | RASA Magazine',
     data: seo('In Conversation on RASA Magazine — interviews with artists, teachers and cultural practitioners.', {
-      image: img('shriya-kulkarni-rhythmic-gymnastics-ribbon.jpg'),
+      image: img('shriya-kulkarni-interview.jpg'),
     }),
   },
   {
@@ -265,7 +265,7 @@ export const routes: Routes = [
     title: 'Shriya Kulkarni | RASA Magazine',
     data: seo(
       'Read “The journey from playing to teaching” — an interview with Shriya Kulkarni on teaching gymnastics.',
-      { type: 'article', image: img('shriya-kulkarni-rhythmic-gymnastics-ribbon.jpg') },
+      { type: 'article', image: img('shriya-kulkarni-interview.jpg') },
     ),
   },
   {
