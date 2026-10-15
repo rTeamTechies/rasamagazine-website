@@ -63,5 +63,18 @@
     "pagesBase": "assets/magazines/pages/vol-5-august-2026",
     "pageCount": 204,
     "pageExt": "webp"
+  },
+  {
+    "id": "vol-6-september-2026",
+    "title": "RASA - VOL. 6 - September 2026",
+    "volume": 6,
+    "month": "September",
+    "year": 2026,
+    "cover": "assets/images/magazines/vol-6-september-2026.jpg",
+    "driveUrl": "https://drive.google.com/file/d/14b2HaYIkqlQAzkbaMAEXiXyY3ERAe9uf/view?usp=sharing",
+    "published": true,
+    "pagesBase": "assets/magazines/pages/vol-6-september-2026",
+    "pageCount": 186,
+    "pageExt": "webp"
   }
 ]
