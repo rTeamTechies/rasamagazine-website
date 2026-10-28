@@ -399,7 +399,7 @@ export const routes: Routes = [
     component: GuestVoices,
     title: 'Guest Voices | RASA Magazine',
     data: seo('Guest Voices on RASA Magazine — writing from contributors across arts, faith and culture.', {
-      image: img('dhruva-upadhye.jpg'),
+      image: img('dhruva-upadhye-portrait.jpg'),
     }),
   },
   {
@@ -410,7 +410,7 @@ export const routes: Routes = [
       'Read “The Rich Tapestry of Hindustani Classical Music: An Explainer for Noobs” — a Guest Voices essay by Dhruva Upadhye on raag, taal, khayal and Hindustani classical music.',
       {
         type: 'article',
-        image: img('dhruva-upadhye.jpg'),
+        image: img('dhruva-upadhye-portrait.jpg'),
         author: 'Dhruva Upadhye',
       },
     ),
