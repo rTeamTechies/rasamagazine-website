@@ -1,1 +1,5 @@
 @use '../shared/category-page' as *;
+
+.card.cafe-thumb img {
+  object-position: center 62%;
+}

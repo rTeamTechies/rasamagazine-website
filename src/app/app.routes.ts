@@ -15,23 +15,34 @@ import { VaibhavArekarStudents } from './pages/archives/vaibhav-arekar-students/
 import { Vakrakara } from './pages/archives/vakrakara/vakrakara';
 import { RasMilana } from './pages/archives/ras-milana/ras-milana';
 import { MagicOfAbhinaya } from './pages/archives/magic-of-abhinaya/magic-of-abhinaya';
+import { CelebratingTagoresLegacy } from './pages/archives/celebrating-tagores-legacy/celebrating-tagores-legacy';
+import { Bhavonmeelanam } from './pages/archives/bhavonmeelanam/bhavonmeelanam';
+import { LagnaPanchami } from './pages/archives/lagna-panchami/lagna-panchami';
 import { ArtistInFocus } from './pages/artist-in-focus/artist-in-focus';
 import { DoyenneOfAbhinaya } from './pages/artist-in-focus/doyenne-of-abhinaya/doyenne-of-abhinaya';
+import { JayanthiKumaresh } from './pages/artist-in-focus/jayanthi-kumaresh/jayanthi-kumaresh';
 import { ReelReflections } from './pages/reel-reflections/reel-reflections';
 import { ProjectHailMary } from './pages/reel-reflections/project-hail-mary/project-hail-mary';
+import { DevilWearsPrada2 } from './pages/reel-reflections/devil-wears-prada-2/devil-wears-prada-2';
 import { LivingHeritage } from './pages/living-heritage/living-heritage';
 import { ShivajiPark } from './pages/living-heritage/shivaji-park/shivaji-park';
+import { DonBoscoShrineMatunga } from './pages/living-heritage/don-bosco-shrine-matunga/don-bosco-shrine-matunga';
 import { InConversation } from './pages/in-conversation/in-conversation';
 import { ShriyaKulkarni } from './pages/in-conversation/shriya-kulkarni/shriya-kulkarni';
+import { IshaanAcharya } from './pages/in-conversation/ishaan-acharya/ishaan-acharya';
 import { AtTheTable } from './pages/at-the-table/at-the-table';
 import { Mokai } from './pages/at-the-table/mokai/mokai';
+import { DoughAndJoes } from './pages/at-the-table/dough-and-joes/dough-and-joes';
 import { TheStyleEdit } from './pages/the-style-edit/the-style-edit';
 import { GauravGuptaRunway } from './pages/the-style-edit/gaurav-gupta-runway/gaurav-gupta-runway';
+import { MetGalaOrMessGala } from './pages/the-style-edit/met-gala-or-mess-gala/met-gala-or-mess-gala';
 import { GuestVoices } from './pages/guest-voices/guest-voices';
 import { PortugueseChurch } from './pages/guest-voices/portuguese-church/portuguese-church';
 import { MumbaiCityOfDreams } from './pages/guest-voices/mumbai-city-of-dreams/mumbai-city-of-dreams';
+import { HindustaniClassicalMusic } from './pages/guest-voices/hindustani-classical-music/hindustani-classical-music';
 import { RasaThinks } from './pages/rasa-thinks/rasa-thinks';
 import { WhenArtMeetsLove } from './pages/rasa-thinks/when-art-meets-love/when-art-meets-love';
+import { WhyMumbaiDeservesBetter } from './pages/rasa-thinks/why-mumbai-deserves-better/why-mumbai-deserves-better';
 import { Community } from './pages/community/community';
 import { QueerCommunity } from './pages/community/queer-community/queer-community';
 import { AshadiEkadashi } from './pages/community/ashadi-ekadashi/ashadi-ekadashi';
@@ -96,7 +107,34 @@ export const routes: Routes = [
     title: 'The Performance Edit | RASA Magazine',
     data: seo(
       'The Performance Edit on RASA Magazine — coverage of performances, recitals and arts programmes.',
-      { image: img('archives-thumb.jpg') },
+      { image: img('lagna-panchami-cast.webp') },
+    ),
+  },
+  {
+    path: 'articles/the-performance-edit/lagna-panchami',
+    component: LagnaPanchami,
+    title: 'Chaos, comedy and confusion in a play | RASA Magazine',
+    data: seo(
+      'Read “Chaos, comedy and confusion in a play!” A review of Lagna Panchami, the Marathi comedy directed by Nipun Dharmadhikari, at Mahakavi Kalidas Auditorium.',
+      { type: 'article', image: img('lagna-panchami-cast.webp') },
+    ),
+  },
+  {
+    path: 'articles/the-performance-edit/bhavonmeelanam',
+    component: Bhavonmeelanam,
+    title: 'Bhavonmeelanam - when dance meets emotion | RASA Magazine',
+    data: seo(
+      'Read “Bhavonmeelanam - when dance meets emotion.” Sharayu Gavi’s Bharatanatyam recital at the Mysore Association in Matunga, reviewed on RASA Magazine.',
+      { type: 'article', image: img('sharayu-gavi-teal.jpg') },
+    ),
+  },
+  {
+    path: 'articles/the-performance-edit/celebrating-tagores-legacy',
+    component: CelebratingTagoresLegacy,
+    title: 'Celebrating Tagore’s legacy, through dance | RASA Magazine',
+    data: seo(
+      'Read “Celebrating Tagore’s legacy, through dance.” NCPA presents Odissi, Kathak and Bharatanatyam celebrating the works of Rabindranath Tagore.',
+      { type: 'article', image: img('tagore-portrait.jpg') },
     ),
   },
   {
@@ -204,7 +242,16 @@ export const routes: Routes = [
     title: 'Artist In Focus | RASA Magazine',
     data: seo(
       'Artist In Focus on RASA Magazine — portraits of dancers, musicians and cultural practitioners.',
-      { image: img('priyadarshini-govind-bharatanatyam-performance.jpg') },
+      { image: img('jayanthi-kumaresh-veena.jpg') },
+    ),
+  },
+  {
+    path: 'articles/artist-in-focus/jayanthi-kumaresh',
+    component: JayanthiKumaresh,
+    title: 'Dr. Jayanthi Kumaresh | RASA Magazine',
+    data: seo(
+      'Read “The invincible Maestro of the Saraswati Veena.” Dr. Jayanthi Kumaresh doesn’t just play the Veena, she invokes Goddess Saraswati herself!',
+      { type: 'article', image: img('jayanthi-kumaresh-veena.jpg') },
     ),
   },
   {
@@ -221,8 +268,17 @@ export const routes: Routes = [
     component: ReelReflections,
     title: 'Reel Reflections | RASA Magazine',
     data: seo('Reel Reflections on RASA Magazine — film reviews and cinema notes on arts and culture.', {
-      image: img('project-hail-mary-ryan-gosling-rocky.jpg'),
+      image: img('devil-wears-prada-2-poster.jpg'),
     }),
+  },
+  {
+    path: 'articles/reel-reflections/devil-wears-prada-2',
+    component: DevilWearsPrada2,
+    title: 'The Devil Wears Prada 2 | RASA Magazine',
+    data: seo(
+      'Read “Gird your loins! A new icon has arrived!” The Devil Wears Prada 2 is here to be the cultural rest for everyone, and its not going anywhere!',
+      { type: 'article', image: img('devil-wears-prada-2-poster.jpg') },
+    ),
   },
   {
     path: 'articles/reel-reflections/project-hail-mary',
@@ -239,7 +295,16 @@ export const routes: Routes = [
     title: 'Living Heritage | RASA Magazine',
     data: seo(
       'Living Heritage on RASA Magazine — places, neighbourhoods and cultural landmarks that still shape public life.',
-      { image: img('shivaji-park-evening.jpg') },
+      { image: img('don-bosco-shrine-exterior.jpg') },
+    ),
+  },
+  {
+    path: 'articles/living-heritage/don-bosco-shrine-matunga',
+    component: DonBoscoShrineMatunga,
+    title: 'Finding serenity and calmness in the heart of Matunga | RASA Magazine',
+    data: seo(
+      'Read “Finding serenity and calmness in the heart of Matunga.” The Don Bosco Shrine of Madonna in Matunga — architecture, stained glass, crypt and Catholic heritage.',
+      { type: 'article', image: img('don-bosco-shrine-exterior.jpg') },
     ),
   },
   {
@@ -256,8 +321,17 @@ export const routes: Routes = [
     component: InConversation,
     title: 'In Conversation | RASA Magazine',
     data: seo('In Conversation on RASA Magazine — interviews with artists, teachers and cultural practitioners.', {
-      image: img('shriya-kulkarni-interview.jpg'),
+      image: img('ishaan-acharya-interview.jpg'),
     }),
+  },
+  {
+    path: 'articles/in-conversation/ishaan-acharya',
+    component: IshaanAcharya,
+    title: 'Dr. Ishaan Acharya | RASA Magazine',
+    data: seo(
+      'Read “Do what you love, love what you do” — a sit-down interview with Dr. Ishaan Acharya on animal rescue and the joys of his journey.',
+      { type: 'article', image: img('ishaan-acharya-interview.jpg') },
+    ),
   },
   {
     path: 'articles/in-conversation/shriya-kulkarni',
@@ -273,8 +347,17 @@ export const routes: Routes = [
     component: AtTheTable,
     title: 'At The Table | RASA Magazine',
     data: seo('At The Table on RASA Magazine — cafes, kitchens and food culture worth tasting.', {
-      image: img('mokai-pali-hill-bandra.png'),
+      image: img('dough-and-joes-interior.png'),
     }),
+  },
+  {
+    path: 'articles/at-the-table/dough-and-joes',
+    component: DoughAndJoes,
+    title: 'Dough and Joes | RASA Magazine',
+    data: seo(
+      'Read “Dough and Joes is the perfect mix of whimsy and classy!” A Hill Road cafe that brings campy aesthetic — and the food to match.',
+      { type: 'article', image: img('dough-and-joes-interior.png') },
+    ),
   },
   {
     path: 'articles/at-the-table/mokai',
@@ -290,8 +373,17 @@ export const routes: Routes = [
     component: TheStyleEdit,
     title: 'The Style Edit | RASA Magazine',
     data: seo('The Style Edit on RASA Magazine — fashion, couture and the looks shaping culture.', {
-      image: img('gaurav-gupta-lady-gaga-doechii-sketches.jpg'),
+      image: img('anok-yai-balenciaga.jpg'),
     }),
+  },
+  {
+    path: 'articles/the-style-edit/met-gala-or-mess-gala',
+    component: MetGalaOrMessGala,
+    title: 'Met Gala or Mess Gala? | RASA Magazine',
+    data: seo(
+      'Read “Met Gala or Mess Gala? Cannes or Can-not?” — a Style Edit take on the best looks from Met Gala 2026 and Cannes.',
+      { type: 'article', image: img('anok-yai-balenciaga.jpg') },
+    ),
   },
   {
     path: 'articles/the-style-edit/gaurav-gupta-runway',
@@ -307,8 +399,21 @@ export const routes: Routes = [
     component: GuestVoices,
     title: 'Guest Voices | RASA Magazine',
     data: seo('Guest Voices on RASA Magazine — writing from contributors across arts, faith and culture.', {
-      image: img('mumbai-city-of-dreams-smog.jpg'),
+      image: img('dhruva-upadhye.jpg'),
     }),
+  },
+  {
+    path: 'articles/guest-voices/hindustani-classical-music',
+    component: HindustaniClassicalMusic,
+    title: 'The Rich Tapestry of Hindustani Classical Music | RASA Magazine',
+    data: seo(
+      'Read “The Rich Tapestry of Hindustani Classical Music: An Explainer for Noobs” — a Guest Voices essay by Dhruva Upadhye on raag, taal, khayal and Hindustani classical music.',
+      {
+        type: 'article',
+        image: img('dhruva-upadhye.jpg'),
+        author: 'Dhruva Upadhye',
+      },
+    ),
   },
   {
     path: 'articles/guest-voices/portuguese-church',
@@ -341,7 +446,7 @@ export const routes: Routes = [
     component: RasaThinks,
     title: 'RASA Thinks | RASA Magazine',
     data: seo('RASA Thinks — essays on why art, live performance and culture still matter.', {
-      image: img('nataraja-bronze-statue.jpg'),
+      image: img('why-mumbai-deserves-better.jpg'),
     }),
   },
   {
@@ -351,6 +456,15 @@ export const routes: Routes = [
     data: seo(
       'Read “When Art meets Love” — why live performances nourish the soul and connect us to culture.',
       { type: 'article', image: img('nataraja-bronze-statue.jpg') },
+    ),
+  },
+  {
+    path: 'articles/rasa-thinks/why-mumbai-deserves-better',
+    component: WhyMumbaiDeservesBetter,
+    title: 'Why Mumbai deserves better in terms of arts? | RASA Magazine',
+    data: seo(
+      'Read “Why Mumbai deserves better in terms of arts?” — an audience member’s experience and opinion on Mumbai based gurus and dance schools.',
+      { type: 'article', image: img('why-mumbai-deserves-better.jpg') },
     ),
   },
   {

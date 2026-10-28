@@ -62,9 +62,27 @@
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/the-performance-edit</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/the-performance-edit/lagna-panchami</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/the-performance-edit/bhavonmeelanam</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/the-performance-edit/celebrating-tagores-legacy</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/the-performance-edit/magic-of-abhinaya</loc>
@@ -134,9 +152,15 @@
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/artist-in-focus</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/artist-in-focus/jayanthi-kumaresh</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/artist-in-focus/doyenne-of-abhinaya</loc>
@@ -146,9 +170,15 @@
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/reel-reflections</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/reel-reflections/devil-wears-prada-2</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/reel-reflections/project-hail-mary</loc>
@@ -158,9 +188,15 @@
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/living-heritage</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/living-heritage/don-bosco-shrine-matunga</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/living-heritage/shivaji-park</loc>
@@ -170,9 +206,15 @@
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/in-conversation</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/in-conversation/ishaan-acharya</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/in-conversation/shriya-kulkarni</loc>
@@ -182,9 +224,15 @@
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/at-the-table</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/at-the-table/dough-and-joes</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/at-the-table/mokai</loc>
@@ -194,9 +242,15 @@
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/the-style-edit</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/the-style-edit/met-gala-or-mess-gala</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/the-style-edit/gaurav-gupta-runway</loc>
@@ -206,9 +260,15 @@
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/guest-voices</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/guest-voices/hindustani-classical-music</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/guest-voices/portuguese-church</loc>
@@ -224,9 +284,15 @@
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/rasa-thinks</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rasamagazine.com/articles/rasa-thinks/why-mumbai-deserves-better</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.rasamagazine.com/articles/rasa-thinks/when-art-meets-love</loc>
