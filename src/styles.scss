@@ -97,6 +97,15 @@ button {
   letter-spacing: 0.02em;
 }
 
+.page.has-atmosphere .kicker {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 248, 231, 0.72);
+}
+
 h1,
 h2,
 h3,

@@ -295,7 +295,7 @@ export const routes: Routes = [
     title: 'Living Heritage | RASA Magazine',
     data: seo(
       'Living Heritage on RASA Magazine — places, neighbourhoods and cultural landmarks that still shape public life.',
-      { image: img('don-bosco-shrine-exterior.jpg') },
+      { image: img('don-bosco-visitor-steps.jpg') },
     ),
   },
   {
@@ -304,7 +304,7 @@ export const routes: Routes = [
     title: 'Finding serenity and calmness in the heart of Matunga | RASA Magazine',
     data: seo(
       'Read “Finding serenity and calmness in the heart of Matunga.” The Don Bosco Shrine of Madonna in Matunga — architecture, stained glass, crypt and Catholic heritage.',
-      { type: 'article', image: img('don-bosco-shrine-exterior.jpg') },
+      { type: 'article', image: img('don-bosco-visitor-steps.jpg') },
     ),
   },
   {
@@ -399,7 +399,7 @@ export const routes: Routes = [
     component: GuestVoices,
     title: 'Guest Voices | RASA Magazine',
     data: seo('Guest Voices on RASA Magazine — writing from contributors across arts, faith and culture.', {
-      image: img('dhruva-upadhye-portrait.jpg'),
+      image: img('dhruva-upadhye.jpg'),
     }),
   },
   {
@@ -410,7 +410,7 @@ export const routes: Routes = [
       'Read “The Rich Tapestry of Hindustani Classical Music: An Explainer for Noobs” — a Guest Voices essay by Dhruva Upadhye on raag, taal, khayal and Hindustani classical music.',
       {
         type: 'article',
-        image: img('dhruva-upadhye-portrait.jpg'),
+        image: img('dhruva-upadhye.jpg'),
         author: 'Dhruva Upadhye',
       },
     ),
