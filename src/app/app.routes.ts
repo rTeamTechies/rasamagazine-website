@@ -373,7 +373,7 @@ export const routes: Routes = [
     component: TheStyleEdit,
     title: 'The Style Edit | RASA Magazine',
     data: seo('The Style Edit on RASA Magazine — fashion, couture and the looks shaping culture.', {
-      image: img('anok-yai-balenciaga.jpg'),
+      image: img('met-gala-stairs.jpg'),
     }),
   },
   {
@@ -382,7 +382,7 @@ export const routes: Routes = [
     title: 'Met Gala or Mess Gala? | RASA Magazine',
     data: seo(
       'Read “Met Gala or Mess Gala? Cannes or Can-not?” — a Style Edit take on the best looks from Met Gala 2026 and Cannes.',
-      { type: 'article', image: img('anok-yai-balenciaga.jpg') },
+      { type: 'article', image: img('met-gala-stairs.jpg') },
     ),
   },
   {
