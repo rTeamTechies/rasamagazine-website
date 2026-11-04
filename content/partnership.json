@@ -1,0 +1,84 @@
+{
+  "title": "Partnerships & Contact",
+  "intro": [
+    "Rasa is an independent digital magazine dedicated to bringing art, culture, heritage and creative expression to a contemporary audience. As we continue to grow, we welcome partnerships with individuals, artists, organisations, cultural institutions and brands that share an interest in supporting and engaging with the arts."
+  ],
+  "sponsor": {
+    "eyebrow": "Sponsor Rasa",
+    "title": "Support Independent Arts & Culture Journalism",
+    "paragraphs": [
+      "Rasa is committed to creating thoughtful, accessible and independent content around the arts and culture. Sponsorships help us continue to cover performances, exhibitions, heritage spaces, artists, cultural initiatives and stories that deserve a wider audience.",
+      "Whether you are an individual patron, an arts organisation, a cultural institution or a brand looking to support independent cultural media, you can sponsor Rasa and become a part of its journey.",
+      "Sponsorship support can contribute towards:"
+    ],
+    "bullets": [
+      "Coverage of cultural and artistic events",
+      "Artist interviews and features",
+      "Editorial and research-driven stories",
+      "Video and social media content",
+      "Heritage and cultural documentation",
+      "The continued development and expansion of Rasa"
+    ],
+    "closing": [
+      "We are open to discussing sponsorships in different forms, depending on the nature of the partnership and the requirements of the sponsor."
+    ],
+    "ctaTitle": "Interested in sponsoring Rasa?",
+    "ctaText": "Get in touch with us to discuss your requirements, sponsorship objectives and how we can build a meaningful association."
+  },
+  "collaborations": {
+    "eyebrow": "Paid Collaborations",
+    "title": "Collaborate with Rasa",
+    "paragraphs": [
+      "Rasa also offers paid content collaborations for artists, choreographers, performers, cultural organisations, events and selected brands whose work aligns with our editorial focus.",
+      "Collaborations can be customised according to the project and may include:"
+    ],
+    "offerings": [
+      {
+        "title": "Performance & Event Coverage",
+        "text": "Coverage of performances, productions, exhibitions and cultural events through Rasa’s digital platforms."
+      },
+      {
+        "title": "Interview Features",
+        "text": "Interviews with artists, performers, choreographers, creators and cultural practitioners, presented through written, video or social media formats."
+      },
+      {
+        "title": "Reels & Video Content",
+        "text": "Conceptualised and produced short-form video content, including artist interviews, performance previews, behind-the-scenes content and promotional reels."
+      },
+      {
+        "title": "Editorial Features",
+        "text": "Sponsored or commissioned features that introduce an artist, project, production, institution or cultural initiative to the Rasa audience."
+      },
+      {
+        "title": "Social Media Collaborations",
+        "text": "Curated promotional content for Instagram and other Rasa platforms, depending on the nature of the collaboration."
+      }
+    ],
+    "closing": [
+      "All paid collaborations are discussed and developed according to the project’s requirements, format, scope and deliverables. Rasa aims to ensure that commercial collaborations remain relevant to its arts and culture-focused identity."
+    ],
+    "ctaTitle": "Looking to collaborate?",
+    "ctaText": "Send us details about your project, event, organisation or brand, along with the kind of collaboration you have in mind. We will get back to you with the possibilities, deliverables and commercial terms suited to your project."
+  },
+  "editorial": {
+    "title": "Editorial Independence",
+    "paragraphs": [
+      "Rasa welcomes paid collaborations, partnerships and sponsored opportunities with organisations and brands that align with our values. However, all such collaborations remain subject to Rasa’s editorial independence. Payment does not guarantee a particular editorial outcome, narrative, opinion or form of coverage, and no collaborator may dictate our content or compromise our journalistic standards. We believe that our credibility rests on our ability to make independent editorial decisions, and that principle will always take precedence over commercial interests."
+    ]
+  },
+  "contact": {
+    "title": "Contact Us",
+    "paragraphs": [
+      "Whether you would like to sponsor Rasa, collaborate with us, commission content, discuss event coverage or simply get in touch, we would love to hear from you."
+    ],
+    "enquiryIntro": "For collaboration or sponsorship enquiries, please include:",
+    "enquiryBullets": [
+      "Your name / organisation",
+      "Project, event or brand details",
+      "Proposed dates, if applicable",
+      "Type of collaboration or sponsorship",
+      "Any specific requirements or deliverables"
+    ],
+    "closing": "We look forward to hearing from you and exploring ways to create meaningful cultural conversations together."
+  }
+}
