@@ -53,9 +53,14 @@ import { RathaYatra } from './pages/culture/ratha-yatra/ratha-yatra';
 import { Videos } from './pages/videos/videos';
 import { Partnership } from './pages/partnership/partnership';
 import { MagazineReader } from './pages/magazine-reader/magazine-reader';
+import {
+  magazineIssueSeo,
+  magazineIssueTitle,
+} from './pages/magazine-reader/magazine-seo';
 import { SeoData } from './services/seo.service';
 
 const img = (file: string) => `assets/images/articles/${file}`;
+const latestMagazineCover = 'assets/images/magazines/vol-7-october-2026.jpg';
 
 const seo = (description: string, extras: Omit<SeoData, 'description'> = {}): SeoData => ({
   description,
@@ -68,7 +73,8 @@ export const routes: Routes = [
     component: Home,
     title: 'RASA Magazine',
     data: seo(
-      'Rasa is a digital magazine dedicated to the arts, culture, heritage, and the stories that shape our world.',
+      'Rasa is a digital magazine dedicated to the arts, culture, heritage, and the stories that shape our world. Latest issue: Volume 7, October 2026.',
+      { image: latestMagazineCover },
     ),
   },
   {
@@ -84,14 +90,19 @@ export const routes: Routes = [
     component: Magazine,
     title: 'Magazine | RASA Magazine',
     data: seo(
-      'Read RASA Magazine issues online. Browse editions covering arts, culture, reviews, interviews and guest writing.',
+      'Read RASA Magazine Volume 7 — October 2026 — and earlier issues online. Browse editions covering arts, culture, reviews, interviews and guest writing.',
+      { image: latestMagazineCover },
     ),
   },
   {
     path: 'magazine/:id',
     component: MagazineReader,
-    title: 'Read | RASA Magazine',
-    data: seo('Open a RASA Magazine issue in the flip-book viewer and read pages like a print edition.'),
+    title: magazineIssueTitle,
+    resolve: { seo: magazineIssueSeo },
+    data: seo(
+      'Open a RASA Magazine issue in the flip-book viewer and read pages like a print edition.',
+      { image: latestMagazineCover },
+    ),
   },
   {
     path: 'articles',

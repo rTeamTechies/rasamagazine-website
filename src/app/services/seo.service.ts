@@ -37,7 +37,8 @@ export class SeoService {
       route = route.firstChild;
     }
 
-    const data = route.snapshot.data as Partial<SeoData>;
+    const snapshot = route.snapshot.data as Partial<SeoData> & { seo?: SeoData };
+    const data: Partial<SeoData> = { ...snapshot, ...snapshot.seo };
     const pageTitle = route.snapshot.title ?? this.title.getTitle() ?? 'RASA Magazine';
     const description = data.description ?? DEFAULT_DESCRIPTION;
     const path = this.router.url.split('?')[0].split('#')[0];
